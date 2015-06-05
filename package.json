@@ -1,0 +1,18 @@
+{
+  "name": "amachef",
+  "version": "1.0.0",
+  "description": "This is an app to make any user a temporary chef",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oduye Oluwayemisi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.5.2",
+    "express": "~4.7.2",
+    "method-override": "~2.1.2",
+    "mongoose": "^4.0.4",
+    "morgan": "~1.2.2"
+  }
+}
