@@ -7,7 +7,7 @@ module.exports = {
   
   getAllUsers: function(req, res) {
 
-    // use mongoose to get all recipes in the database
+    // use mongoose to get all users in the database
     User.find(function(err, users) {
 
       // if there is an error retrieving, send t∏he error. nothing after res.send(err) will execute
