@@ -10,7 +10,7 @@ module.exports = function(app, passport) {
   // get all recipes
   app.get('/api/recipes', recipe.getAllRecipes);
   app.get('/api/recipes/:recipe_id', recipe.getRecipe);
-  app.get('/api/users/', user.getAllUsers);
+  app.get('/api/users/', isLoggedIn, user.getAllUsers);
 
   // create recipe and send back all recipes after creation
   app.post('/api/recipes', recipe.createNewRecipe);
@@ -31,22 +31,36 @@ module.exports = function(app, passport) {
   // }))
 
   // process the signup form
-  app.post('/api/login', passport.authenticate('local-signup', {
-    successRedirect: '/profile', // redirect to the secure profile section
-    failureRedirect: '/signup', // redirect back to the signup page if there is an error
-    failureFlash: true // allow flash messages
-  }));
+  app.post('/api/signup',
+    passport.authenticate('local-signup'),
+    function(req, res) {
+      // If this function gets called, authentication was successful.
+      // `req.user` contains the authenticated user.
+      res.json(req.user);
+    });
 
-  app.post('/login',
-  passport.authenticate('local-signup'),
-  function(req, res) {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
-    res.json({message: "User has been authenticated"});
+  app.post('/api/login', passport.authenticate('local-login'), function(req, res) {
+    res.json(req.user)
+  });
+
+  app.get('/api/logout', function(req, res) {
+    req.logout();
+    res.send('user has been logged out');
   });
 
 
   app.get('*', recipe.otherwise);
   app.get('*', user.otherwise);
+
+  // route middleware to make sure a user is logged in
+  function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+      return next();
+
+    // if they aren't redirect them to the home page
+    res.send('unauthorized');
+  }
 
 };
