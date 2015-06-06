@@ -37,6 +37,14 @@ module.exports = function(app, passport) {
     failureFlash: true // allow flash messages
   }));
 
+  app.post('/login',
+  passport.authenticate('local-signup'),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.json({message: "User has been authenticated"});
+  });
+
 
   app.get('*', recipe.otherwise);
   app.get('*', user.otherwise);
