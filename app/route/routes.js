@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
   app.get('/api/users/', isLoggedIn, user.getAllUsers);
 
   // create recipe and send back all recipes after creation
-  app.post('/api/recipes', recipe.createNewRecipe);
+  app.post('/api/recipes', isLoggedIn, recipe.createNewRecipe);
   // app.post('/api/users', user.createNewUser);
 
   // edit a recipe
