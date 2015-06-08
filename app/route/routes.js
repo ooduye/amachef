@@ -14,11 +14,26 @@ module.exports = function(app, passport) {
 
   // create recipe and send back all recipes after creation
   app.post('/api/recipes', user.isLoggedIn, recipe.createNewRecipe);
-  
+
   // create a new user, process the signup form
   app.post('/api/signup', passport.authenticate('local-signup'), user.createNewUser);
 
   app.post('/api/login', passport.authenticate('local-login'), user.loginUser);
+
+  // =====================================
+  // FACEBOOK ROUTES =====================
+  // =====================================
+  // route for facebook authentication and login
+  app.get('/auth/facebook', passport.authenticate('facebook', {
+    scope: 'email'
+  }));
+
+  // handle the callback after facebook has authenticated the user
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+      successRedirect: '/profile',
+      failureRedirect: '/'
+    }));
 
   app.get('/api/logout', user.logoutUser);
 
@@ -37,7 +52,7 @@ module.exports = function(app, passport) {
   //   successRedirect: res.json({message: 'you have been logged in'});
   // }))
 
-  
+
 
   app.get('*', recipe.otherwise);
   app.get('*', user.otherwise);

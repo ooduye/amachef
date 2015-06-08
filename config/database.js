@@ -1,3 +1,3 @@
 module.exports = {
-  url: 'mongodb://localhost/amachef_db'
+  db: process.env.MONGO_DB || process.env.MONGOHQ_URL
 };

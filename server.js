@@ -1,5 +1,5 @@
 // setting up
-
+require('dotenv').load();
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
@@ -13,7 +13,7 @@ var session = require('express-session');
 
 var database = require('./config/database');
 
-mongoose.connect(database.url);
+mongoose.connect(database.db);
 
 require('./config/passport')(passport); // pass passport for configuration
 
