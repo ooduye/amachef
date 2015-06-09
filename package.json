@@ -4,7 +4,8 @@
   "description": "This is an app to make any user a temporary chef",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "Oduye Oluwayemisi",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "morgan": "~1.2.2",
     "passport": "^0.2.2",
     "passport-facebook": "^2.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "bower": "0.6.x"
   }
 }
