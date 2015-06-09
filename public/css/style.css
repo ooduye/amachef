@@ -1,0 +1,49 @@
+.headdiv {
+  font-family: 'Raleway', sans-serif;
+  background: #383838;
+  background-image: url('../images/background-image.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  height: 450px;
+}
+
+.title {
+  padding-top: 180px;
+  color: #fff;
+  font-size: 56px;
+  height: 0;
+  overflow: visible;
+  line-height: 1;
+  margin-bottom: 80px;
+  text-align: center;
+  text-shadow: #000 0 0 7px, rgba(0, 0, 0, .9) 0 0 20px;
+}
+
+#q {
+  border: none;
+  outline: none;
+  width: 400px;
+}
+
+.nochrome {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.formdiv {
+  background-color: white;
+  padding: 5px;
+  width: 450px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 6px;
+  opacity: .9;
+  height: 40px;
+  font-size: 19px;
+}
+
+.main {
+  margin-top: 100px;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "amachef",
+  "version": "0.0.1",
+  "homepage": "https://github.com/andela-ooduye/amachef",
+  "authors": [
+    "andela-ooduye <oduyeoluwayemisi@andela.co>"
+  ],
+  "main": "index.js",
+  "keywords": [
+    "recipes"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "bootstrap": "~3.3.4"
+  }
+}

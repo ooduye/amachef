@@ -47,7 +47,8 @@ module.exports = {
       name: req.body.name,
       cookTime: req.body.cookTime,
       ingredients: req.body.ingredients,
-      method: req.body.method
+      method: req.body.method,
+      userName: req.body.userName
     }, function(err, recipe) {
       if (err)
         res.send(err);
