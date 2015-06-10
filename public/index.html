@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="amachef" lang="en">
 
 <head>
   <title>AmAChef</title>
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
   <!-- Bootstrap core CSS -->
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body >
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="navCtrl">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -20,35 +21,38 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">AmAChef</a>
+        <a class="navbar-brand" ui-sref="home">Am-A-Chef</a>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" class="glyphicon glyphicon-plus"></a></li>
-          <li><a href="#">Create an account</a></li>
-          <li><a href="#">Sign In</a></li>
+      <div ng-controller="loginCtrl" id="navbar" class="navbar-collapse collapse">
+        <ul ng-show="loggedOut" class="nav navbar-nav navbar-right" >
+          <li><a ui-sref="signup">Create an account</a></li>
+          <li><a ui-sref="login">Login</a></li>
+        </ul>
+        <ul ng-show="loggedIn" class="nav navbar-nav navbar-right">
+          <li>
+            <a ui-sref="#" class="glyphicon glyphicon-plus"></a>
+          </li>
+          <li><a ui-sref="username">Username</a></li>
+          <li><a ui-sref="logout">Logout</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="headdiv">
-    <div class="focus">
-      <div class="title">Become your own CHEF!!!</div>
-      <div class="formdiv">
-        <form action="/recipe" class="keywords" novalidate="">
-          <button class="nochrome" type="submit"><span class="glyphicon glyphicon-search y-grid"></span></button>
-          <span class="ninja-autocomplete"><input autocapitalize="off" autocorrect="off" id="q" class="q" name="q" placeholder="Search recipes..." type="text" value="" autocomplete="off"></span>
-        </form>
-      </div>
+  <div ui-view></div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Copyright.</p>
     </div>
-  </div>
-  <div class="container main">
-    
-  </div>
+  </footer>
   <!-- /.container -->
-  <!-- Bootstrap core JavaScript
+  <!-- JavaScript files
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="js/route.js"></script>
+  <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
+  <script type="text/javascript" src="js/services/service.js"></script>
 </body>
 
 </html>

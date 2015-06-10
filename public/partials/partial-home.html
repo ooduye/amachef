@@ -1,0 +1,16 @@
+<div class="headdiv">
+  <div class="focus">
+    <div class="title">Become your own CHEF!!!</div>
+    <div class="formdiv">
+      <form action="/recipe" class="keywords" novalidate="">
+        <button class="nochrome" type="submit"><span class="glyphicon glyphicon-search y-grid"></span></button>
+        <span class="ninja-autocomplete"><input autocapitalize="off" autocorrect="off" id="q" class="q" name="q" placeholder="Search recipes..." type="text" value="" autocomplete="off"></span>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container main" ng-init="getAllRecipes()">
+	<ul>
+		<li ng-repeat="recipe in recipes"> {{recipe}} </li>
+	</ul>
+</div>
