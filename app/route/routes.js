@@ -16,9 +16,11 @@ module.exports = function(app, passport) {
   app.post('/api/recipes', user.isLoggedIn, recipe.createNewRecipe);
 
   // create a new user, process the signup form
-  app.post('/api/signup', passport.authenticate('local-signup'), user.createNewUser);
+  app.post('/api/signup', passport.authenticate('local-signup', {failureFlash: true}), user.createNewUser);
 
-  app.post('/api/login', passport.authenticate('local-login'), user.loginUser);
+  app.post('/api/login', passport.authenticate('local-login', {
+    failureFlash: true
+  }), user.loginUser);
 
   // =====================================
   // FACEBOOK ROUTES =====================

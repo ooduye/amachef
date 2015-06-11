@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var jwt = require('jsonwebtoken');
 /**
  * [exports makes all the functions accessible by other files]
  * @type {Object}
@@ -11,8 +12,11 @@ module.exports = {
     User.find(function(err, users) {
 
       // if there is an error retrieving, send t∏he error. nothing after res.send(err) will execute
-      if (err)
-        res.send(err)
+      if (err) {
+        res.json({
+          message: 'Error getting users.'
+        });
+      }
       res.json(users); // return all recipes in JSON format
     });
   },
@@ -28,10 +32,15 @@ module.exports = {
     res.json(req.user);
   },
 
+
   loginUser: function(req, res) {
+    console.log("im here");
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    res.json(req.user)
+    // console.log("this is the response: ", res);
+    
+    var token = jwt.sign(req.user,"fvckingKey",{ expiresInMinutes: 1300})
+    res.send(token);
   },
 
   logoutUser: function(req, res) {
@@ -55,11 +64,15 @@ module.exports = {
 
       // get and return all the users after you create another
       user.save(function(err, users) {
-        if (err)
-          res.send(err)
-        res.json({
-          data: users
-        });
+        if (err) {
+          res.json({
+            message: 'User update failed'
+          });
+        } else {
+          res.json({
+            message: 'User updated!'
+          });
+        }
       });
     });
   },

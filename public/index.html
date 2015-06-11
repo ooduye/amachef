@@ -12,8 +12,8 @@
 </head>
 
 <body >
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" ng-controller="navCtrl">
+  <nav class="navbar navbar-default navbar-fixed-top" ng-controller="navCtrl">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -23,18 +23,16 @@
         </button>
         <a class="navbar-brand" ui-sref="home">Am-A-Chef</a>
       </div>
-      <div ng-controller="loginCtrl" id="navbar" class="navbar-collapse collapse">
-        <ul ng-show="loggedOut" class="nav navbar-nav navbar-right" >
-          <li><a ui-sref="signup">Create an account</a></li>
-          <li><a ui-sref="login">Login</a></li>
-        </ul>
-        <ul ng-show="loggedIn" class="nav navbar-nav navbar-right">
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right" >
+          <li><a ui-sref="signup" ng-if="!isLogged">Create an account</a></li>
+          <li><a ui-sref="login" ng-if="!isLogged">Login</a></li>
           <li>
-            <a ui-sref="#" class="glyphicon glyphicon-plus"></a>
+            <a ui-sref="#" class="glyphicon glyphicon-plus" ng-if="isLogged"></a>
           </li>
-          <li><a ui-sref="username">Username</a></li>
-          <li><a ui-sref="logout">Logout</a></li>
-        </ul>
+          <li><a ui-sref="username" ng-if="isLogged">Username</a></li>
+          <li><a ui-sref="home" ng-if="isLogged" ng-click="logoutUser()">Logout</a></li
+        </ul> 
       </div>
     </div>
   </nav>
@@ -48,11 +46,11 @@
   <!-- JavaScript files
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script type="text/javascript" src="js/route.js"></script>
-  <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
   <script type="text/javascript" src="js/services/service.js"></script>
+  <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
 </body>
 
 </html>

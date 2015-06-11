@@ -1,4 +1,4 @@
-var app = angular.module('amachef', ['ui.router']);
+var app = angular.module('amachef', ['ui.router'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');

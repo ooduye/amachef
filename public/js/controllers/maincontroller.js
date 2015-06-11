@@ -1,9 +1,6 @@
-app.controller("navCtrl", ["$scope", function($scope) {
-  $scope.loggedOut = true;
-  $scope.loggedIn = false;
-}]);
-
 app.controller("MainController", ["$scope", "info", function($scope, info) {
+  
+  info.isLoggedIn();
 
   $scope.getAllRecipes = function() {
     info.getRecipes(function(data) {
@@ -34,32 +31,31 @@ app.controller("signupCtrl", ["$scope", "info", function($scope, info) {
   };
 }]);
 
-app.controller("loginCtrl", ["$scope", "info", function($scope, info) {
+app.controller("loginCtrl", ["$scope", "info", "$window", '$rootScope', function($scope, info, $window, $rootScope) {
+  info.isLoggedIn();
   $scope.loginUser = function() {
-    var loginDetails = {
-      email: $scope.email,
-      password: $scope.password
-    };
-
-    info.loginUser(loginDetails, function(data) {
-        console.log(data);
+    info.loginUser($scope.user, function(data) {
+        $window.localStorage.setItem('token', data);
+        info.isLoggedIn();
+        window.location = '/';
       },
-      function() {
-        console.log();
+      function(err) {
+        $scope.errorMessage = 'Incorrect Username or Password';
       });
-
-    $scope.loggedOut = !loggedOut;
-    $scope.loggedIn = !loggedIn;
 
   };
 
-  $scope.logoutUser = function() {
-    info.logoutUser(function(data) {
-        console.log(data);
-        $scope.recipes = data;
-      },
-      function() {
-        console.log();
-      });
-  };
 }]);
+
+app.controller("navCtrl", ["$scope", "info", "$window", "$rootScope", function($scope, info, $window, $rootScope) {
+  $rootScope.logoutUser = function() {
+    info.logoutUser(function(data) {
+        $window.localStorage.setItem('token', null);
+        $scope.recipes = data;
+        $rootScope.isLogged = false;
+      },
+      function() {
+        console.log();
+      });
+  };
+}])

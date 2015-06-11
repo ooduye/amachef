@@ -5,6 +5,7 @@ var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 var passport = require('passport');
+var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -34,6 +35,7 @@ app.use(methodOverride());
 app.use(session({ secret: 'andelaandelaandela' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 require('./app/route/routes')(app, passport);
 

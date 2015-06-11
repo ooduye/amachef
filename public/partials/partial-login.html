@@ -3,12 +3,11 @@
     <form class="form-signin">       
         <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
         <hr class="colorgraph"><br>
-        
-        <input type="text" class="form-control" ng-model="email" placeholder="Email" required="" autofocus="" />
-        <input type="password" class="form-control" ng-model="password" placeholder="Password" required=""/>          
+        {{errorMessage}}
+        <input type="text" class="form-control" ng-model="user.email" placeholder="Email" required="" autofocus="" />
+        <input type="password" class="form-control" ng-model="user.password" placeholder="Password" required=""/>          
        
         <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="loginUser()">Login</button>
-        <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="logoutUser()">Logout</button>
     </form>     
   </div>
 </div>
