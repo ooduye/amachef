@@ -25,13 +25,14 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right" >
-          <li><a ui-sref="signup" ng-if="!isLogged">Create an account</a></li>
-          <li><a ui-sref="login" ng-if="!isLogged">Login</a></li>
+          <li><a ui-sref="signup" ng-hide="current_user">Create an account</a></li>
+          
+          <li><a ui-sref="login" ng-hide="current_user">Login</a></li>
           <li>
-            <a ui-sref="#" class="glyphicon glyphicon-plus" ng-if="isLogged"></a>
+            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user"></a>
           </li>
-          <li><a ui-sref="username" ng-if="isLogged">Username</a></li>
-          <li><a ui-sref="home" ng-if="isLogged" ng-click="logoutUser()">Logout</a></li
+          <li><a ui-sref="signup" ng-show="current_user">{{current_user.userName}}</a></li>
+          <li><a ui-sref="home" ng-show="current_user" ng-click="logoutUser()">Logout</a></li
         </ul> 
       </div>
     </div>
@@ -51,6 +52,7 @@
   <script type="text/javascript" src="js/route.js"></script>
   <script type="text/javascript" src="js/services/service.js"></script>
   <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.js"></script>
 </body>
 
 </html>

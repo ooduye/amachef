@@ -1,15 +1,15 @@
-var app = angular.module('amachef', ['ui.router'])
+var app = angular.module('amachef', ['ui.router', 'ngStorage'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
-  $urlRouterProvider.when('/home','/home/allrecipes');
+    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.when('/home', '/home/allrecipes');
 
-  $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'partials/partial-home.html',
-      controller: 'MainController'
-    })
+    $stateProvider
+      .state('home', {
+        url: '/home',
+        templateUrl: 'partials/partial-home.html',
+        controller: 'MainController'
+      })
 
     .state('home.search', {
       url: '/search',
@@ -24,15 +24,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('signup', {
-      url: '/signup',
-      templateUrl: 'partials/partial-signup.html',
-      controller: 'signupCtrl'
-    })
+        url: '/signup',
+        templateUrl: 'partials/partial-signup.html',
+        controller: 'signupCtrl'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'partials/partial-login.html',
+        controller: 'loginCtrl'
+      })
+      .state('addrecipe', {
+        url: '/addrecipe',
+        templateUrl: 'partials/partial-addrecipe.html',
+        controller: 'addRecipeCtrl'
+      })
+  })
+  .run(['$rootScope', 'info', '$state', '$location', function($rootScope, info, $state, $location) {
+    $rootScope.$on('$stateChangeStart',
+      function(event, toState) {
+        if (info.getUser()) {
+          if (toState.templateUrl == 'partials/partial-login.html' || toState.templateUrl == 'partials/partial-signup.html') {
+            // window.location = '/';
+            $location.path('/')
+          }
+        }
+        else if (toState.templateUrl == 'partials/partial-home.html') {
 
-    .state('login', {
-      url: '/login',
-      templateUrl: 'partials/partial-login.html',
-      controller: 'loginCtrl'
-    })
-
-})
+        } else if (toState.templateUrl == 'partials/partial-login.html' || toState.templateUrl == 'partials/partial-signup.html') {
+          
+        } else {
+          $state.go('login');
+        }
+      })
+  }]);

@@ -1,6 +1,7 @@
 app.controller("MainController", ["$http", "$scope", "info", function($http, $scope, info) {
 
-  info.isLoggedIn();
+  $scope.current_user = info.getUser();
+
   $scope.getReqRecipes = function() {
     $http.get('/api/recipe?firstItem=' + $scope.firstItem + '&secondItem=' + $scope.secondItem + '&thirdItem=' + $scope.thirdItem)
       .success(function(data) {
@@ -41,13 +42,18 @@ app.controller("signupCtrl", ["$scope", "info", function($scope, info) {
   };
 }]);
 
-app.controller("loginCtrl", ["$scope", "info", "$window", '$rootScope', function($scope, info, $window, $rootScope) {
-  info.isLoggedIn();
+app.controller("addRecipeCtrl", ["$scope", "info", function($scope, info) {
+  
+}]);
+
+app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', function($scope, info, $rootScope, $location) {
+
   $scope.loginUser = function() {
     info.loginUser($scope.user, function(data) {
-        $window.localStorage.setItem('token', data);
-        info.isLoggedIn();
-        window.location = '/';
+
+        info.login(data);
+        $location.path('/');
+        $rootScope.current_user = info.getUser();
       },
       function(err) {
         $scope.errorMessage = 'Incorrect Username or Password';
@@ -57,10 +63,18 @@ app.controller("loginCtrl", ["$scope", "info", "$window", '$rootScope', function
 
 }]);
 
-app.controller("navCtrl", ["$scope", "info", "$window", "$rootScope", function($scope, info, $window, $rootScope) {
+app.controller("navCtrl", ["$scope", "info", "$localStorage", "$rootScope", "$location", function($scope, info, $localStorage, $rootScope, $location) {
+
+  $rootScope.current_user = info.getUser();
+
   $rootScope.logoutUser = function() {
     info.logoutUser(function(data) {
-        $window.localStorage.setItem('token', null);
+        $localStorage.user = 'null';
+
+        $location.path('/');
+
+        $rootScope.current_user = info.getUser();
+
         $scope.recipes = data;
         $rootScope.isLogged = false;
       },

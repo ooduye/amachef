@@ -8,6 +8,9 @@ var RecipeSchema = new Schema({
   name: {
     type: String
   },
+  category: {
+    type: String
+  },
   cookTime: {
     type: String
   },

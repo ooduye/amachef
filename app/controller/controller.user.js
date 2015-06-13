@@ -39,8 +39,7 @@ module.exports = {
     // `req.user` contains the authenticated user.
     // console.log("this is the response: ", res);
     
-    var token = jwt.sign(req.user,"fvckingKey",{ expiresInMinutes: 1300})
-    res.send(token);
+    res.json(req.user);
   },
 
   logoutUser: function(req, res) {

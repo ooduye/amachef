@@ -1,6 +1,7 @@
-app.factory('info', ['$http', '$rootScope', '$window', function($http, $rootScope, $window) {
-  return {
+app.factory('info', ['$http', '$rootScope', '$localStorage', function($http, $rootScope, $localStorage) {
 
+  return { 
+    
     getRecipes: function(success, error) {
       $http.get('/api/recipes').success(success).error(error);
     },
@@ -17,14 +18,17 @@ app.factory('info', ['$http', '$rootScope', '$window', function($http, $rootScop
       $http.get('/api/logout').success(success).error(error);
     },
 
-    isLoggedIn: function() {
+    getUser: function() {
+      var user = $localStorage.user;
+      if (user == 'null')
+        user = false
+      return user
+    },
 
-      if (!($window.localStorage.getItem('token'))) {
-        $rootScope.isLogged = false;
-      } else {
-        $rootScope.isLogged = true;
-      }
-
+    login: function(user) {
+      console.log(user);
+      $localStorage.user = user;
+      console.log($localStorage.user);
     }
   }
 }]);
