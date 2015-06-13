@@ -21,6 +21,28 @@ module.exports = {
       res.json(recipes); // return all recipes in JSON format
     });
   },
+  getReqRecipes: function(req, res) {
+    
+      Recipe.find({
+        ingredients: { $in: [req.query.firstItem, req.query.secondItem, req.query.thirdItem]}
+      }, function(err, recipe) {
+        if (err) {
+          res.json({
+            message: "Server Error"
+          });
+        }
+        if (recipe) {
+          if (recipe.length === 0) {
+            res.json({
+              message: "No recipes combination of " + req.query.firstItem + ", " + req.query.secondItem + ", " + req.query.thirdItem
+            })
+          } else if (recipe.length > 0) {
+            res.json(recipe);
+          }
+        }
+      });
+    
+  },
   /**
    * [getRecipe gets a particular recipe in the database]
    * @param  {[req]}

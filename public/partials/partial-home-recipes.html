@@ -1,0 +1,22 @@
+<div class="container main" ng-init="getAllRecipes()">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 portfolio-item" ng-repeat="recipe in recipes">
+      <div class="portfolio-hover">
+        <div class="portfolio-hover-content">
+        </div>
+      </div>
+      <div class="portfolio-caption">
+        <h2>{{recipe.name}}</h2>
+        <h4 class="text-muted">Preparation Time</h4> <span class="cookSpan">{{recipe.cookTime}}</span>
+        <h4 class="text-muted">Ingredients</h4>
+        <ol>
+          <li ng-repeat="item in recipe.ingredients">{{item}}</li>
+        </ol>
+        <h4 class="text-muted">Method</h4>
+        <ol>
+          <li ng-repeat="item in recipe.method">{{item}}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

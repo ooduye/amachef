@@ -9,6 +9,7 @@ module.exports = function(app, passport) {
   // api ---------------------------------------------------------------------
   // get all recipes
   app.get('/api/recipes', recipe.getAllRecipes);
+  app.get('/api/recipe', recipe.getReqRecipes);
   app.get('/api/recipes/:recipe_id', recipe.getRecipe);
   app.get('/api/users/', user.isLoggedIn, user.getAllUsers);
 

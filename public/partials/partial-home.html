@@ -2,15 +2,15 @@
   <div class="focus">
     <div class="title">Become your own CHEF!!!</div>
     <div class="formdiv">
-      <form action="/recipe" class="keywords" novalidate="">
-        <button class="nochrome" type="submit"><span class="glyphicon glyphicon-search y-grid"></span></button>
-        <span class="ninja-autocomplete"><input autocapitalize="off" autocorrect="off" id="q" class="q" name="q" placeholder="Search recipes..." type="text" value="" autocomplete="off"></span>
+      <form>
+        <input type="text" class="item" ng-model="firstItem" placeholder="Enter an Ingredient">
+        <input type="text" class="item" ng-model="secondItem" placeholder="Enter an Ingredient">
+        <input type="text" class="item" ng-model="thirdItem" placeholder="Enter an Ingredient">
+        <br/>
+        <button class="btn btn-primary nochrome" type="button" ui-sref=".search" ng-click="getReqRecipes()"><span class="glyphicon glyphicon-search y-grid"> Search</span></button>
       </form>
     </div>
   </div>
 </div>
-<div class="container main" ng-init="getAllRecipes()">
-	<ul>
-		<li ng-repeat="recipe in recipes"> {{recipe}} </li>
-	</ul>
-</div>
+<div ui-view></div>
+

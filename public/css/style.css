@@ -9,7 +9,7 @@
 }
 
 .title {
-  padding-top: 180px;
+  padding-top: 80px;
   color: #fff;
   font-size: 56px;
   height: 0;
@@ -26,26 +26,33 @@
   width: 400px;
 }
 
-.nochrome {
-  border: none;
-  outline: none;
-  background-color: transparent;
-}
-
-.formdiv {
+.item {
   background-color: white;
   padding: 5px;
-  width: 450px;
+  width: 300px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 6px;
   opacity: .9;
-  height: 40px;
-  font-size: 19px;
+  height: 35px;
+  font-size: 15px;
+}
+
+.nochrome {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.formdiv {
+  margin-top: 200px;
 }
 
 .main {
-  margin-top: 50px;
+  margin-top: 10px;
+}
+
+.searchdiv {
+  font-family: 'Coming Soon', cursive;
 }
 
 html {
@@ -55,9 +62,28 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  
   margin-bottom: 60px;
+  text-align: center;
 }
+
+.displaydiv {
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+h2 { 
+  padding-left: 35px;
+}
+
+h4 {
+  padding-left: 35px;
+}
+
+.cookSpan {
+  padding-left: 35px;
+}
+
+
 
 .footer {
   position: absolute;

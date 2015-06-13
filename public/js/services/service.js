@@ -1,5 +1,6 @@
 app.factory('info', ['$http', '$rootScope', '$window', function($http, $rootScope, $window) {
   return {
+
     getRecipes: function(success, error) {
       $http.get('/api/recipes').success(success).error(error);
     },
@@ -17,7 +18,8 @@ app.factory('info', ['$http', '$rootScope', '$window', function($http, $rootScop
     },
 
     isLoggedIn: function() {
-      if ($window.localStorage.getItem('token') === 'null') {
+
+      if (!($window.localStorage.getItem('token'))) {
         $rootScope.isLogged = false;
       } else {
         $rootScope.isLogged = true;
@@ -26,3 +28,5 @@ app.factory('info', ['$http', '$rootScope', '$window', function($http, $rootScop
     }
   }
 }]);
+
+

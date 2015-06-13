@@ -1,6 +1,16 @@
-app.controller("MainController", ["$scope", "info", function($scope, info) {
-  
+app.controller("MainController", ["$http", "$scope", "info", function($http, $scope, info) {
+
   info.isLoggedIn();
+  $scope.getReqRecipes = function() {
+    $http.get('/api/recipe?firstItem=' + $scope.firstItem + '&secondItem=' + $scope.secondItem + '&thirdItem=' + $scope.thirdItem)
+      .success(function(data) {
+        $scope.searchRecipes = data;
+      })
+      .error(function(err) {
+        console.log("an error occured: ", err);
+      });
+    $scope.searchRecipes = "";
+  };
 
   $scope.getAllRecipes = function() {
     info.getRecipes(function(data) {

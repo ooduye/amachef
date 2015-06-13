@@ -115,7 +115,8 @@ module.exports = {
       return next();
 
     // if they aren't redirect them to the home page
-    res.send('unauthorized');
+    // res.send('unauthorized');
+    res.json({message: "Unauthorized Access"});
   }
 
 };
