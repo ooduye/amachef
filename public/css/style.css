@@ -38,6 +38,28 @@
   font-size: 15px;
 }
 
+.addrecipeinput {
+  padding: 5px;
+  width: 300px;
+  border-radius: 6px;
+  height: 35px;
+  font-size: 15px;
+}
+
+.addrecipetextarea {
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.control-group {
+  margin-bottom: 30px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
 .nochrome {
   margin-top: 20px;
   width: 200px;
@@ -45,6 +67,18 @@
 
 .formdiv {
   margin-top: 200px;
+}
+
+.addrecipediv {
+  margin-top: 50px;
+}
+
+.legend {
+  font-size: 35px;
+}
+
+.control-label {
+  font-size: 23px;
 }
 
 .main {
@@ -169,6 +203,28 @@ input[type="password"] {
 #wrap {
   margin-top: 0px;
   padding: 170px;
+  background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+  /* Mozilla Firefox */
+  
+  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+  /* Opera */
+  
+  background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+  /* Webkit (Safari/Chrome 10) */
+  
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
+  /* Webkit (Chrome 11+) */
+  
+  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
+  /* W3C Markup, IE10 Release Preview */
+  
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#formwrap {
+
   background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
   /* Mozilla Firefox */
   

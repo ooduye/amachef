@@ -1,13 +1,13 @@
-<form class="form-horizontal">
+<form class="form-horizontal addrecipediv" id="formwrap">
   <fieldset>
     <div id="legend">
-      <legend class="">Add New Recipe</legend>
+      <legend class="legend">Add New Recipe</legend>
     </div>
     <div class="control-group">
       <!-- Username -->
       <label class="control-label">Recipe Name</label>
       <div class="controls">
-        <input type="text" id="name" name="name" placeholder="Name of Recipe" class="input-xlarge">
+        <input type="text" class="addrecipeinput" id="name" name="name" placeholder="Name of Recipe" class="input-xlarge">
       </div>
     </div>
  
@@ -15,8 +15,8 @@
       <!-- E-mail -->
       <label class="control-label">Recipe Category</label>
       <div class="controls">
-        <input type="text" id="category" name="category" placeholder="Category of Recipe" class="input-xlarge">
-        <p class="help-block">Examples: Salads, Soup, Pasta, etc...</p>
+        <input type="text" class="addrecipeinput" id="category" name="category" placeholder="Category of Recipe" class="input-xlarge">
+        <p class="help-block">E.g.: Salads, Soup, Pasta, etc...</p>
       </div>
     </div>
  
@@ -24,8 +24,8 @@
       <!-- Password-->
       <label class="control-label">Cook Time</label>
       <div class="controls">
-        <input type="text" id="cookTime" name="cookTime" placeholder="How long does it take to prepare it?" class="input-xlarge">
-        <p class="help-block">Examples: 5mins, 1hr, 1hr30mins, etc...</p>
+        <input type="text" class="addrecipeinput" id="cookTime" name="cookTime" placeholder="How long does it take to prepare it?" class="input-xlarge">
+        <p class="help-block">E.g.: 5mins, 1hr, 1hr30mins, etc...</p>
       </div>
     </div>
  
@@ -33,7 +33,8 @@
       <!-- Password -->
       <label class="control-label">Ingredients</label>
       <div class="controls">
-        <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients needed to prepare recipe" class="input-xlarge">
+        <textarea class="addrecipetextarea" id="ingredients" name="ingredients" placeholder="Ingredients needed to prepare recipe" class="input-xlarge" rows="4" cols="40"></textarea>
+        <!-- <input type="text" class="addrecipeinput" id="ingredients" name="ingredients" placeholder="Ingredients needed to prepare recipe" class="input-xlarge"> -->
         <p class="help-block">Enter ingredients and separate them by commas</p>
       </div>
     </div>
@@ -42,7 +43,7 @@
       <!-- Password -->
       <label class="control-label">Method</label>
       <div class="controls">
-        <textarea id="method" name="method" placeholder="Method to prepare recipe" class="input-xlarge" rows="4" cols="50"></textarea>
+        <textarea class="addrecipetextarea" id="method" name="method" placeholder="Method to prepare recipe" class="input-xlarge" rows="6" cols="50"></textarea>
         <!-- <input type="text" id="method" name="method" placeholder="Method to prepare recipe" class="input-xlarge"> -->
         <p class="help-block">Enter methods and separate them by commas</p>
       </div>
