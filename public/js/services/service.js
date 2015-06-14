@@ -10,6 +10,10 @@ app.factory('info', ['$http', '$rootScope', '$localStorage', function($http, $ro
       $http.post('/api/signup', userDetails).success(success).error(error);
     },
 
+    addNewRecipe: function(newRecipe, success, error) {
+      $http.post('/api/recipes', newRecipe).success(success).error(error);
+    },
+
     loginUser: function(loginDetails, success, error) {
       $http.post('/api/login', loginDetails).success(success).error(error);
     },

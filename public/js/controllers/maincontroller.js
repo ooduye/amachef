@@ -26,13 +26,8 @@ app.controller("MainController", ["$http", "$scope", "info", function($http, $sc
 
 app.controller("signupCtrl", ["$scope", "info", function($scope, info) {
   $scope.signupUser = function() {
-    var userDetails = {
-      userName: $scope.userName,
-      password: $scope.password,
-      email: $scope.email
-    };
 
-    info.signupUser(userDetails, function(data) {
+    info.signupUser($scope.userDetails, function(data) {
         console.log(data);
         $scope.response = data;
       },
@@ -43,7 +38,21 @@ app.controller("signupCtrl", ["$scope", "info", function($scope, info) {
 }]);
 
 app.controller("addRecipeCtrl", ["$scope", "info", function($scope, info) {
-  
+  $scope.addNewRecipe = function() {
+    var newRecipe = {
+      name: $scope.name,
+      category: $scope.category,
+      cookTime: $scope.cookTime,
+      ingredients: ($scope.ingredients).split(','),
+      method: ($scope.method).split(',')
+    };
+    info.addNewRecipe(newRecipe, function(data) {
+      $scope.response = data;
+    },
+    function() {
+      console.log();
+    });
+  };
 }]);
 
 app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', function($scope, info, $rootScope, $location) {
