@@ -24,7 +24,7 @@ module.exports = {
   getReqRecipes: function(req, res) {
     
       Recipe.find({
-        ingredients: { $in: [req.query.firstItem, req.query.secondItem, req.query.thirdItem]}
+        ingredients: { $in: [req.query.firstItem, req.query.secondItem, req.query.thirdItem, req.query.fourthItem, req.query.fifthItem, req.query.sixthItem, req.query.seventhItem, req.query.eighthItem, req.query.ninthItem, req.query.tenthItem]}
       }, function(err, recipe) {
         if (err) {
           res.json({
@@ -34,7 +34,7 @@ module.exports = {
         if (recipe) {
           if (recipe.length === 0) {
             res.json({
-              message: "No recipes combination of " + req.query.firstItem + ", " + req.query.secondItem + ", " + req.query.thirdItem
+              message: "No recipes combination of " + req.query.firstItem + ", " + req.query.secondItem + ", " + req.query.thirdItem + ", " + req.query.fourthItem + ", " + req.query.fifthItem + ", " + req.query.sixthItem + ", " + req.query.seventhItem + ", " + req.query.eighthItem + ", " + req.query.ninthItem + ", " + req.query.tenthItem
             })
           } else if (recipe.length > 0) {
             res.json(recipe);
@@ -90,7 +90,7 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  editRecipe: function(req, res) {
+  editRecipe: function(req, res, next) {
     Recipe.findById(req.params.recipe_id, function(err, recipe) {
       if (err)
         res.send(err);
@@ -106,6 +106,7 @@ module.exports = {
           res.send(err)
         res.json(recipes);
       });
+      next();
     });
   },
   /**

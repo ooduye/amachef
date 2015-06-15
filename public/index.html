@@ -24,19 +24,20 @@
         <a class="navbar-brand" ui-sref="home">Am-A-Chef</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right" >
+        <ul class="nav navbar-nav navbar-right">
           <li><a ui-sref="signup" ng-hide="current_user">Create an account</a></li>
           
           <li><a ui-sref="login" ng-hide="current_user">Login</a></li>
           <li>
             <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user"></a>
           </li>
-          <li><a ui-sref="signup" ng-show="current_user">{{current_user.userName}}</a></li>
-          <li><a ui-sref="home" ng-show="current_user" ng-click="logoutUser()">Logout</a></li
+          <li><a ui-sref="signup" ng-show="current_user">{{current_user.userName | uppercase}}</a></li>
+          <li><a ui-sref="home" ng-show="current_user" ng-click="logoutUser()">Logout</a></li>
         </ul> 
       </div>
     </div>
   </nav>
+
   <div ui-view></div>
   <footer class="footer">
     <div class="container">
@@ -47,6 +48,8 @@
   <!-- JavaScript files
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script type="text/javascript" src="js/route.js"></script>

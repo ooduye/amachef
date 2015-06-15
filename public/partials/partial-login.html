@@ -1,13 +1,20 @@
-<div class = "container-partial">
-  <div class="wrapper">
-    <form class="form-signin">       
-        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
-        <hr class="colorgraph"><br>
-        {{errorMessage}}
-        <input type="text" class="form-control" ng-model="user.email" placeholder="Email" required="" autofocus="" />
-        <input type="password" class="form-control" ng-model="user.password" placeholder="Password" required=""/>          
-       
-        <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="loginUser()">Login</button>
-    </form>     
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <div class="wrapper">
+        <form class="form-signin">
+          <h3 class="form-signin-heading">Welcome! Please Sign In</h3>
+          <hr class="colorgraph">
+          <br> {{errorMessage}}
+          <input type="text" class="form-control" ng-model="user.email" placeholder="Email" required="" autofocus="" />
+          <input type="password" class="form-control" ng-model="user.password" placeholder="Password" required="" />
+          <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="loginUser()">Login</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
   </div>
 </div>

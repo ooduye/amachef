@@ -34,10 +34,8 @@ module.exports = {
 
 
   loginUser: function(req, res) {
-    console.log("im here");
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    // console.log("this is the response: ", res);
     
     res.json(req.user);
   },

@@ -6,16 +6,11 @@
         </div>
       </div>
       <div class="portfolio-caption">
-        <h2>{{recipe.name}}</h2>
+        <div class="h2div">
+        <h2 class="h2name" ng-click="getOneRecipe($index)">{{recipe.name}}</h2></div>
         <h4 class="text-muted">Preparation Time</h4> <span class="cookSpan">{{recipe.cookTime}}</span>
         <h4 class="text-muted">Ingredients</h4>
-        <ol>
-          <li ng-repeat="item in recipe.ingredients">{{item}}</li>
-        </ol>
-        <h4 class="text-muted">Method</h4>
-        <ol>
-          <li ng-repeat="item in recipe.method">{{item}}</li>
-        </ol>
+        <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}{{$last ? '' : ', '}}</div>
       </div>
     </div>
   </div>
