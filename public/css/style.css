@@ -110,6 +110,10 @@
   text-align: center;
 }
 
+.username {
+  cursor: pointer;
+}
+
 .h2div {
   background-color: #C7B049;
   cursor: pointer;
