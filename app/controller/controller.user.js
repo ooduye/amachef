@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var Recipe = require('../models/recipe');
 var jwt = require('jsonwebtoken');
 /**
  * [exports makes all the functions accessible by other files]
@@ -18,6 +19,22 @@ module.exports = {
         });
       }
       res.json(users); // return all recipes in JSON format
+    });
+  },
+
+  getUserRecipes: function(req, res, next) {
+    Recipe.find({
+      user: req.params.user_id
+    }, function(err, recipe) {
+      if (err) {
+        res.json({
+          message: 'Error getting recipes.'
+        });
+      }
+      if (recipe) {
+        return res.json(recipe);
+      }
+      next();
     });
   },
   /**

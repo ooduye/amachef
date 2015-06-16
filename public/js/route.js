@@ -43,6 +43,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'partials/partial-recipe.html',
         controller: 'MainController'
       })
+      .state('userrecipes', {
+        url: '/users/:id/recipes',
+        templateUrl: 'partials/partial-userrecipes.html',
+        controller: 'MainController'
+      })
   })
   .run(['$rootScope', 'info', '$state', '$location', function($rootScope, info, $state, $location) {
     $rootScope.$on('$stateChangeStart',
@@ -51,17 +56,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
           if (toState.templateUrl == 'partials/partial-login.html') {
             $location.path('/');
           } else if (toState.templateUrl == 'partials/partial-signup.html') {
-           $location.path('/'); 
+            $location.path('/');
           }
-        }
-        else if (toState.templateUrl == 'partials/partial-home.html') {
+        } else if (toState.templateUrl == 'partials/partial-home.html') {
 
         } else if (toState.templateUrl == 'partials/partial-login.html' || toState.templateUrl == 'partials/partial-signup.html') {
-          
-        } else if(toState.templateUrl == 'partials/partial-addrecipe.html') {
+
+        } else if (toState.templateUrl == 'partials/partial-addrecipe.html') {
           $location.path('/login');
-        } else if(toState.templateUrl == 'partials/partial-recipe.html'){
-          
+        } else if (toState.templateUrl == 'partials/partial-recipe.html') {
+
+        } else if (toState.templateUrl == 'partials/partial-userrecipes.html') {
+          $location.path('/login');
         }
       })
   }]);

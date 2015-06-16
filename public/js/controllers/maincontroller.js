@@ -1,4 +1,4 @@
-app.controller("MainController", ["$http", "$scope", "info", "$location", "$rootScope", function($http, $scope, info, $location, $rootScope) {
+app.controller("MainController", ["$http", "$scope", "info", "$location", "$rootScope", "$localStorage", function($http, $scope, info, $location, $rootScope, $localStorage) {
 
   $scope.current_user = info.getUser();
 
@@ -34,9 +34,21 @@ app.controller("MainController", ["$http", "$scope", "info", "$location", "$root
     })
     .error(function(err) {
       console.log("an error occured: ", err);
+    });
+  };
+
+  $rootScope.getUserRecipes = function(){
+    $rootScope.userid = $localStorage.user._id;
+    $scope.url = "/users/" + $rootScope.userid + "/recipes";
+    $http.get('/api/users/' + $rootScope.userid + '/recipes')
+    .success(function(data) {
+      $rootScope.userRecipes = data;
+      $location.path($scope.url);
     })
-    
-  }
+    .error(function(err) {
+      console.log("an error occured: ", err);
+    });
+  };
 
 }]);
 
@@ -46,29 +58,33 @@ app.controller("signupCtrl", ["$scope", "info", "$location", function($scope, in
 
     info.signupUser($scope.userDetails, function(data) {
         $scope.response = data;
+        alert("You have been successfully signed up. Please login to continue.");
         $location.path('/login');
       },
-      function() {
-        console.log();
+      function(err) {
+        $scope.errorMessage = 'Email already exists';
       });
   };
 }]);
 
 app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", function($scope, info, $localStorage) {
   $scope.addNewRecipe = function() {
+    $scope.user = $localStorage.user._id;
     var newRecipe = {
       name: $scope.name,
       category: $scope.category,
       cookTime: $scope.cookTime,
       ingredients: ($scope.ingredients).split(','),
       method: ($scope.method).split(','),
-      user: $localStorage.user._id
+      user: $scope.user
     };
     info.addNewRecipe(newRecipe, function(data) {
       $scope.response = data;
+      alert("Recipe has been added. Thank you for contributing!");
+      $location.path('/');
     },
-    function() {
-      console.log();
+    function(err) {
+      $scope.errorMessage = 'Error creating recipe';
     });
   };
 }]);
@@ -79,6 +95,7 @@ app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', functi
     info.loginUser($scope.user, function(data) {
 
         info.login(data);
+        alert("You have been successfully logged in.");
         $location.path('/');
         $rootScope.current_user = info.getUser();
       },
@@ -97,16 +114,15 @@ app.controller("navCtrl", ["$scope", "info", "$localStorage", "$rootScope", "$lo
   $rootScope.logoutUser = function() {
     info.logoutUser(function(data) {
         $localStorage.user = 'null';
-
+        alert("You have been successfully logged out");
         $location.path('/');
 
         $rootScope.current_user = info.getUser();
 
         $scope.recipes = data;
-        $rootScope.isLogged = false;
       },
-      function() {
-        console.log();
+      function(err) {
+        $errorMessage = "Error logging out";
       });
   };
 }])

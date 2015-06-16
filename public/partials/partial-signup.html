@@ -6,9 +6,9 @@
         <legend>Sign Up</legend>
         <h4>It's free and always will be.</h4>
         <input type="text" ng-model="userDetails.userName" class="form-control input-lg" required="" placeholder="User Name" />
+        {{errorMessage}}
         <input type="text" ng-model="userDetails.email" class="form-control input-lg" required="" placeholder="Your Email" />
         <input type="password" ng-model="userDetails.password" class="form-control input-lg" required="" placeholder="Password" />
-        <!-- <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" /> -->
         <button class="btn btn-lg btn-primary btn-block signup-btn" type="button" ng-click="signupUser()">
           Create my account</button>
       </form>

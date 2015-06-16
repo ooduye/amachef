@@ -22,27 +22,29 @@ module.exports = {
     });
   },
   getReqRecipes: function(req, res) {
-    
-      Recipe.find({
-        ingredients: { $in: [req.query.firstItem, req.query.secondItem, req.query.thirdItem, req.query.fourthItem, req.query.fifthItem, req.query.sixthItem, req.query.seventhItem, req.query.eighthItem, req.query.ninthItem, req.query.tenthItem]}
-      }, function(err, recipe) {
-        if (err) {
+
+    Recipe.find({
+      ingredients: {
+        $in: [req.query.firstItem, req.query.secondItem, req.query.thirdItem, req.query.fourthItem, req.query.fifthItem, req.query.sixthItem, req.query.seventhItem, req.query.eighthItem, req.query.ninthItem, req.query.tenthItem]
+      }
+    }, function(err, recipe) {
+      if (err) {
+        res.json({
+          message: "Server Error"
+        });
+      }
+      if (recipe) {
+        if (recipe.length === 0) {
           res.json({
-            message: "Server Error"
-          });
+            message: "No recipes combination of " + req.query.firstItem + ", " + req.query.secondItem + ", " + req.query.thirdItem + ", " + req.query.fourthItem + ", " + req.query.fifthItem + ", " + req.query.sixthItem + ", " + req.query.seventhItem + ", " + req.query.eighthItem + ", " + req.query.ninthItem + ", " + req.query.tenthItem
+          })
+        } else if (recipe.length > 0) {
+          res.json(recipe);
         }
-        if (recipe) {
-          if (recipe.length === 0) {
-            res.json({
-              message: "No recipes combination of " + req.query.firstItem + ", " + req.query.secondItem + ", " + req.query.thirdItem + ", " + req.query.fourthItem + ", " + req.query.fifthItem + ", " + req.query.sixthItem + ", " + req.query.seventhItem + ", " + req.query.eighthItem + ", " + req.query.ninthItem + ", " + req.query.tenthItem
-            })
-          } else if (recipe.length > 0) {
-            res.json(recipe);
-          }
-        }
-      });
-    
+      }
+    });
   },
+
   /**
    * [getRecipe gets a particular recipe in the database]
    * @param  {[req]}
@@ -67,10 +69,11 @@ module.exports = {
     // create a recipe, information comes from AJAX request from Angular
     Recipe.create({
       name: req.body.name,
+      category: req.body.category,
       cookTime: req.body.cookTime,
       ingredients: req.body.ingredients,
       method: req.body.method,
-      userName: req.body.userName
+      user: req.body.user
     }, function(err, recipe) {
       if (err)
         res.send(err);
@@ -96,6 +99,7 @@ module.exports = {
         res.send(err);
 
       recipe.name = req.body.name;
+      recipe.category = req.body.category;
       recipe.cookTime = req.body.cookTime;
       recipe.ingredients = req.body.ingredients;
       recipe.method = req.body.method;

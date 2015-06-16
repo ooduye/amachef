@@ -12,6 +12,7 @@ module.exports = function(app, passport) {
   app.get('/api/recipe', recipe.getReqRecipes);
   app.get('/api/recipes/:recipe_id', recipe.getRecipe);
   app.get('/api/users/', user.isLoggedIn, user.getAllUsers);
+  app.get('/api/users/:user_id/recipes', user.isLoggedIn, user.getUserRecipes);
 
   // create recipe and send back all recipes after creation
   app.post('/api/recipes', user.isLoggedIn, recipe.createNewRecipe);

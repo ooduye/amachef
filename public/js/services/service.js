@@ -30,9 +30,7 @@ app.factory('info', ['$http', '$rootScope', '$localStorage', function($http, $ro
     },
 
     login: function(user) {
-      // console.log(user);
       $localStorage.user = user;
-      // console.log($localStorage.user);
     }
   }
 }]);

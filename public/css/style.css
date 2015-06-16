@@ -76,6 +76,7 @@
 
 .addrecipediv {
   margin-top: 50px;
+  text-align: center;
 }
 
 .legend {
@@ -84,6 +85,10 @@
 
 .control-label {
   font-size: 23px;
+}
+
+.mainuser{
+  margin-top: 100px;
 }
 
 .main {
@@ -95,7 +100,7 @@
   margin-top: 100px;
   margin-bottom: 80px;
   max-width: 10000px;
-
+  font-size: 17px;
 }
 
 .portfolio-caption{
@@ -106,13 +111,19 @@
 }
 
 .h2div {
-  background-color: #fff0aa;
+  background-color: #C7B049;
   cursor: pointer;
   padding: 10px;
+  /*#fff0aa*/
 }
 
 .h2name {
-  color: #337ab7;
+  color: #FFFFFF;
+  /*#337ab7*/
+}
+
+.recipeSpan {
+  padding-left: 25px;
 }
 
 .searchdiv {
