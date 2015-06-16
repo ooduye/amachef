@@ -1,5 +1,6 @@
-app.controller("MainController", ["$http", "$scope", "info", "$location", "$rootScope", "$localStorage", function($http, $scope, info, $location, $rootScope, $localStorage) {
+app.controller("MainController", ["$http", "$scope", "info", "$location", "$rootScope", "$localStorage",'$stateParams', function($http, $scope, info, $location, $rootScope, $localStorage,$stateParams) {
 
+  // console.log($stateParams.rid);
   $scope.current_user = info.getUser();
 
   $scope.getReqRecipes = function() {
@@ -25,6 +26,7 @@ app.controller("MainController", ["$http", "$scope", "info", "$location", "$root
   };
 
   $rootScope.getOneRecipe = function(index){
+    // console.log(2,index);
     $rootScope.recipeId = $scope.recipes[index]._id;
     $scope.url = "/recipe/" + $rootScope.recipeId;
     $http.get('/api/recipes/' + $rootScope.recipeId)
@@ -88,7 +90,21 @@ app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", function($sc
     });
   };
 }]);
-
+app.controller("recipeCtrl",['$scope','$stateParams','$http',function($scope,$stateParams,$http){
+    // console.log(2,index);
+    
+    $scope.recipeId = $stateParams.rid;
+    // $scope.url = "/recipe/" + $scope.recipeId;
+    console.log("im here");
+    $http.get('/api/recipes/' + $scope.recipeId)
+    .success(function(data) {
+      $scope.oneRecipe = data;
+      // $location.path($scope.url);
+    })
+    .error(function(err) {
+      console.log("an error occured: ", err);
+    });
+}])
 app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', function($scope, info, $rootScope, $location) {
 
   $scope.loginUser = function() {

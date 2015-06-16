@@ -38,10 +38,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'partials/partial-addrecipe.html',
         controller: 'addRecipeCtrl'
       })
-      .state('recipe', {
-        url: '/recipe/:id',
+      .state('getOneRecipe', {
+        url: '/recipe/:rid',
         templateUrl: 'partials/partial-recipe.html',
-        controller: 'MainController'
+        controller: 'recipeCtrl'
       })
       .state('userrecipes', {
         url: '/users/:id/recipes',
