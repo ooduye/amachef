@@ -43,7 +43,7 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  createNewUser: function(req, res) {
+  createNewUser: function(req, res, next) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
     res.json(req.user);
@@ -67,7 +67,7 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  editUser: function(req, res) {
+  editUser: function(req, res, next) {
     User.findById(req.params.user_id, function(err, user) {
       if (err)
         res.send(err);
@@ -88,6 +88,7 @@ module.exports = {
           });
         }
       });
+      next();
     });
   },
   /**
@@ -96,7 +97,7 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  deleteUser: function(req, res) {
+  deleteUser: function(req, res, next) {
     User.remove({
       _id: req.params.user_id
     }, function(err, user) {
@@ -109,6 +110,7 @@ module.exports = {
           res.send(err)
         res.json(users);
       });
+      next();
     });
   },
   /**

@@ -18,7 +18,7 @@ module.exports = {
       // if there is an error retrieving, send t∏he error. nothing after res.send(err) will execute
       if (err)
         res.send(err)
-      res.json(recipes); // return all recipes in JSON format
+      return res.json(recipes); // return all recipes in JSON format
     });
   },
   getReqRecipes: function(req, res) {
@@ -36,12 +36,13 @@ module.exports = {
       if (recipe) {
         if (recipe.length === 0) {
           res.json({
-            message: "No recipes combination of " + req.query.firstItem + ", " + req.query.secondItem + ", " + req.query.thirdItem + ", " + req.query.fourthItem + ", " + req.query.fifthItem + ", " + req.query.sixthItem + ", " + req.query.seventhItem + ", " + req.query.eighthItem + ", " + req.query.ninthItem + ", " + req.query.tenthItem
+            message: "No possible combination"
           })
         } else if (recipe.length > 0) {
-          res.json(recipe);
+          return res.json(recipe);
         }
       }
+      
     });
   },
 
@@ -55,8 +56,8 @@ module.exports = {
     Recipe.findById(req.params.recipe_id, function(err, recipe) {
       if (err)
         res.send(err)
-      res.json(recipe);
-    })
+      return res.json(recipe);
+    });
   },
   /**
    * [createNewRecipe creates a new recipe in the database]
@@ -119,7 +120,7 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  deleteRecipe: function(req, res) {
+  deleteRecipe: function(req, res, next) {
     Recipe.remove({
       _id: req.params.recipe_id
     }, function(err, recipe) {
@@ -132,6 +133,7 @@ module.exports = {
           res.send(err)
         res.json(recipes);
       });
+      next();
     });
   },
   /**

@@ -44,9 +44,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'recipeCtrl'
       })
       .state('userrecipes', {
-        url: '/users/:id/recipes',
+        url: '/users/:uid/recipes',
         templateUrl: 'partials/partial-userrecipes.html',
-        controller: 'MainController'
+        controller: 'userCtrl'
       })
   })
   .run(['$rootScope', 'info', '$state', '$location', function($rootScope, info, $state, $location) {

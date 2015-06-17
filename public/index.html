@@ -41,7 +41,7 @@
           <li>
             <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user"></a>
           </li>
-          <li><a ng-click="getUserRecipes()" class="username" ng-show="current_user">{{current_user.userName | uppercase}}</a></li>
+          <li><a ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user">{{current_user.userName | uppercase}}</a></li>
           <li><a ui-sref="home" ng-show="current_user" ng-click="logoutUser()">Logout</a></li>
         </ul> 
       </div>
