@@ -42,12 +42,12 @@ app.controller("MainController", ["$http", "$scope", "info", "$location", "$root
 }]);
 
 
-app.controller("signupCtrl", ["$scope", "info", "$location", function($scope, info, $location) {
+app.controller("signupCtrl", ["$scope", "info", "$location", "toastr", function($scope, info, $location, toastr) {
   $scope.signupUser = function() {
 
     info.signupUser($scope.userDetails, function(data) {
         $scope.response = data;
-        alert("You have been successfully signed up. Please login to continue.");
+        toastr.success("Sign up successful. Please login to continue.");
         $location.path('/login');
       },
       function(err) {
@@ -56,7 +56,7 @@ app.controller("signupCtrl", ["$scope", "info", "$location", function($scope, in
   };
 }]);
 
-app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location", function($scope, info, $localStorage, $location) {
+app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location", "toastr", function($scope, info, $localStorage, $location, toastr) {
   $scope.addNewRecipe = function() {
     $scope.user = $localStorage.user._id;
     var newRecipe = {
@@ -69,7 +69,7 @@ app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location",
     };
     info.addNewRecipe(newRecipe, function(data) {
         $scope.response = data;
-        alert("Recipe has been added. Thank you for contributing!");
+        toastr.success("Recipe has been added. Thank you for contributing!");
         $location.path('/');
       },
       function(err) {
@@ -83,14 +83,11 @@ app.controller("recipeCtrl", ['$scope', '$stateParams', '$http', '$location', fu
   $scope.recipeId = $stateParams.rid;
   $http.get('/api/recipes/' + $scope.recipeId)
     .success(function(data) {
-      
-      // $scope.noRecipe = "";      
-      // console.log(data);
-      // if ((data.name === 'CastError')) {
-      //   $scope.noRecipe = "CastError";
-      //   $location.path('/');
-      //   return;
-      // }
+
+      if ((data.name === 'CastError')) {
+        $location.path('/');
+        return;
+      }
       $scope.oneRecipe = data;
     })
     .error(function(err) {
@@ -98,10 +95,15 @@ app.controller("recipeCtrl", ['$scope', '$stateParams', '$http', '$location', fu
     });
 }]);
 
-app.controller("userCtrl", ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
+app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', function($scope, $stateParams, $http, $location) {
   $scope.userid = $stateParams.uid;
   $http.get('/api/users/' + $scope.userid + '/recipes')
     .success(function(data) {
+
+      if ((data.message === "Error getting recipes.")) {
+        $location.path('/');
+        return;
+      }
       $scope.userRecipes = data;
     })
     .error(function(err) {
@@ -109,13 +111,13 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', function($scope, 
     });
 }]);
 
-app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', function($scope, info, $rootScope, $location) {
+app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', "toastr", function($scope, info, $rootScope, $location, toastr) {
 
   $scope.loginUser = function() {
     info.loginUser($scope.user, function(data) {
 
         info.login(data);
-        alert("You have been successfully logged in.");
+        toastr.success("Login successfully.");
         $location.path('/');
         $rootScope.current_user = info.getUser();
       },
@@ -127,14 +129,14 @@ app.controller("loginCtrl", ["$scope", "info", '$rootScope', '$location', functi
 
 }]);
 
-app.controller("navCtrl", ["$scope", "info", "$localStorage", "$rootScope", "$location", function($scope, info, $localStorage, $rootScope, $location) {
+app.controller("navCtrl", ["$scope", "info", "$localStorage", "$rootScope", "$location", "toastr", function($scope, info, $localStorage, $rootScope, $location, toastr) {
 
   $rootScope.current_user = info.getUser();
 
   $rootScope.logoutUser = function() {
     info.logoutUser(function(data) {
         $localStorage.user = 'null';
-        alert("You have been successfully logged out");
+        toastr.success("Logout successfully");
         $location.path('/');
 
         $rootScope.current_user = info.getUser();

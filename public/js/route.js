@@ -1,4 +1,8 @@
-var app = angular.module('amachef', ['ui.router', 'ngStorage'])
+var app = angular.module('amachef', ['ui.router', 'ngStorage', 'toastr']);
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');

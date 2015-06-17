@@ -9,12 +9,15 @@
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+
   <!-- JavaScript files
     ================================================== -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
   <script type="text/javascript" src="js/route.js"></script>
   <script type="text/javascript" src="js/services/service.js"></script>
   <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
@@ -39,7 +42,7 @@
           
           <li><a ui-sref="login" ng-hide="current_user">Login</a></li>
           <li>
-            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user"></a>
+            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe"></a>
           </li>
           <li><a ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user">{{current_user.userName | uppercase}}</a></li>
           <li><a ui-sref="home" ng-show="current_user" ng-click="logoutUser()">Logout</a></li>
@@ -50,8 +53,8 @@
 
   <div ui-view></div>
   <footer class="footer">
-    <div class="container">
-      <p class="text-muted">Designed by Oduye Oluwayemisi</p>
+    <div class="container footerdiv">
+      <p class="text-muted">Copyright &copy 2015. Designed by Oduye Oluwayemisi</p>
     </div>
   </footer>
   
