@@ -266,6 +266,12 @@ body {
   background-color: #515151;
 }
 
+.pagination {
+  position: fixed;
+  bottom: 60px;
+  /*padding: 0 auto;*/
+}
+
 .navbar-brand {
   font-family: 'Arvo', serif;
   font-size: 20px;
