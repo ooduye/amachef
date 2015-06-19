@@ -42,7 +42,7 @@ module.exports = {
           return res.json(recipe);
         }
       }
-      
+
     });
   },
 
@@ -102,7 +102,7 @@ module.exports = {
       recipe.name = req.body.name;
       recipe.category = req.body.category;
       recipe.cookTime = req.body.cookTime;
-      recipe.ingredients = req.body.ingredients.toLowerCase();
+      recipe.ingredients = req.body.ingredients;
       recipe.method = req.body.method;
 
       // get and return all the recipes after you create another
@@ -111,7 +111,9 @@ module.exports = {
           res.send(err)
         }
 
-        res.json({message: 'Saved'});
+        res.json({
+          message: 'Saved'
+        });
       });
     });
   },
