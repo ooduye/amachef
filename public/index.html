@@ -5,6 +5,7 @@
   <title>AmAChef</title>
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   <!-- Bootstrap core CSS -->
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
@@ -28,7 +29,7 @@
 </head>
 
 <body >
-  <nav class="navbar navbar-default navbar-fixed-top" ng-controller="navCtrl">
+  <nav class="navbar navbar-default navbar-fixed-top navbarstyle" ng-controller="navCtrl">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -40,15 +41,15 @@
         <a class="navbar-brand" ui-sref="home">Am-A-Chef</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref="signup" ng-hide="current_user">Create an account</a></li>
+        <ul class="nav navbar-nav navbar-right navstyle">
+          <li><a class="navcolor" ui-sref="signup" ng-hide="current_user"><b>CREATE AN ACCOUNT</b></a></li>
           
-          <li><a ui-sref="login" ng-hide="current_user">Login</a></li>
+          <li><a class="navcolor" ui-sref="login" ng-hide="current_user"><b>LOGIN</b></a></li>
           <li>
             <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe"></a>
           </li>
-          <li><a ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user">{{current_user.userName | uppercase}}</a></li>
-          <li><a ui-sref="home" ng-show="current_user" ng-click="logoutUser()">Logout</a></li>
+          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user"><b>{{current_user.userName | uppercase}}</b></a></li>
+          <li><a class="navcolor" ui-sref="home" ng-show="current_user" ng-click="logoutUser()"><b>LOGOUT</b></a></li>
         </ul> 
       </div>
     </div>

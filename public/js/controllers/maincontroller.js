@@ -14,12 +14,11 @@ app.controller("MainController", ["$http", "$scope", "info", "$location", "$root
       return;
     }
 
-    $scope.searchArray = ($scope.firstItem).split(',');
+    $scope.searchArray = ($scope.firstItem.toLowerCase()).split(',');
 
     $http.get('/api/recipe?firstItem=' + $scope.searchArray[0] + '&secondItem=' + $scope.searchArray[1] + '&thirdItem=' + $scope.searchArray[2] + '&fourthItem=' + $scope.searchArray[3] + '&fifthItem=' + $scope.searchArray[4] + '&sixthItem=' + $scope.searchArray[5] + '&seventhItem=' + $scope.searchArray[6] + '&eighthItem=' + $scope.searchArray[7] + '&ninthItem=' + $scope.searchArray[8] + '&tenthItem=' + $scope.searchArray[9])
       .success(function(data) {
         $scope.noCombination = "";
-        console.log("yo: ", data);
         if ((data.message === 'No possible combination')) {
           $scope.noCombination = "No possible combination exists... Sorry!!";
           return;
@@ -46,7 +45,7 @@ app.controller("MainController", ["$http", "$scope", "info", "$location", "$root
 
 app.controller("signupCtrl", ["$scope", "info", "$location", "toastr", function($scope, info, $location, toastr) {
   $scope.signupUser = function() {
-    
+
 
     info.signupUser($scope.userDetails, function(data) {
         $scope.response = data;
@@ -66,7 +65,7 @@ app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location",
       name: $scope.name,
       category: $scope.category,
       cookTime: $scope.cookTime,
-      ingredients: ($scope.ingredients).split(','),
+      ingredients: ($scope.ingredients.toLowerCase()).split(','),
       method: ($scope.method).split(','),
       user: $scope.user
     };
@@ -83,22 +82,22 @@ app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location",
 
 app.controller("recipeCtrl", ['$scope', '$stateParams', '$http', '$location', function($scope, $stateParams, $http, $location) {
 
-  var myImage = document.getElementById("myPhoto");
-  var imageArray = ["../images/tip.jpg", "../images/tip1.jpg", "../images/tip2.jpg", "../images/tip3.jpg", "../images/tip4.jpg", "../images/tip5.jpg", "../images/tip6.jpg", "../images/tip7.jpg", "../images/tip8.jpg", "../images/tip9.jpg"];
-  var imageIndex = 0;
+  // var myImage = document.getElementById("myPhoto");
+  // var imageArray = ["../images/tip.jpg", "../images/tip1.jpg", "../images/tip2.jpg", "../images/tip3.jpg", "../images/tip4.jpg", "../images/tip5.jpg", "../images/tip6.jpg", "../images/tip7.jpg", "../images/tip8.jpg", "../images/tip9.jpg"];
+  // var imageIndex = 0;
 
-  function changeImage() {
-    myPhoto.setAttribute("src", imageArray[imageIndex]);
-    imageIndex++;
-    if (imageIndex >= imageArray.length) {
-      imageIndex = 0;
-    }
-  }
+  // function changeImage() {
+  //   myPhoto.setAttribute("src", imageArray[imageIndex]);
+  //   imageIndex++;
+  //   if (imageIndex >= imageArray.length) {
+  //     imageIndex = 0;
+  //   }
+  // }
 
-  var intervalHandler = setInterval(changeImage, 3000);
-  myPhoto.onclick = function() {
-    clearInterval(intervalHandler);
-  }
+  // var intervalHandler = setInterval(changeImage, 3000);
+  // myPhoto.onclick = function() {
+  //   clearInterval(intervalHandler);
+  // }
 
 
 
@@ -166,7 +165,6 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
   }
 
   $scope.deleteRecipe = function(recipeId, index) {
-    console.log(recipeId)
 
     swal({
       title: "Are you sure?",

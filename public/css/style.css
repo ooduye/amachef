@@ -1,11 +1,21 @@
 .headdiv {
   font-family: 'Raleway', sans-serif;
   background: #383838;
-  background-image: url('../images/background-image.jpg');
+  background-image: url('../images/background2.jpg');
   background-size: cover;
   background-attachment: fixed;
   text-align: center;
   height: 450px;
+}
+
+
+.navcolor {
+  color: #5cb1dd !important;
+  font-weight: 400px; 
+}
+
+.navbarstyle {
+  background: #ffffff;
 }
 
 .errorParagraph {
@@ -18,13 +28,13 @@
 }
 
 .title {
-  padding-top: 80px;
+  padding-top: 180px;
   color: #fff;
   font-size: 56px;
   height: 0;
   overflow: visible;
   line-height: 1;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   text-align: center;
   text-shadow: #000 0 0 7px, rgba(0, 0, 0, .9) 0 0 20px;
 }
@@ -47,10 +57,15 @@
   width: 600px;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 6px;
   opacity: .9;
   height: 35px;
   font-size: 15px;
+  border: 0px;
+  border-radius: 5px 5px 5px 5px !important;
+}
+
+.recipename {
+  text-align: center;
 }
 
 .addrecipeinput {
@@ -80,13 +95,18 @@
 }
 
 .nochrome {
-  
+  background-color: #5cb1dd;
   width: 100px;
-  height: 35px;
+  height: 36px;
+  border: 0;
+}
+
+.nochrome:hover {
+  opacity: .6;
 }
 
 .formdiv {
-  margin-top: 200px;
+  margin-top: 80px;
 }
 
 .addrecipediv {
@@ -119,10 +139,42 @@
 }
 
 .portfolio-caption{
-  background-color: #FFFBE8;
-  padding-bottom: 10px;
+  background-color: #FFFFFF;
+  padding-bottom: 20px;
   margin-bottom: 20px;
   text-align: center;
+  position: relative;
+}
+
+.portfolio-caption:before, .portfolio-caption:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.portfolio-caption:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
 }
 
 .username {
@@ -130,10 +182,47 @@
 }
 
 .h2div {
-  background-color: #C7B049;
+  background-color: #5cb1dd;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   /*#fff0aa*/
+}
+
+.h2div:hover{
+
+}
+
+.h2div:hover
+{
+    position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.h2div:hover:before, .h2div:hover:after
+{
+  content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+} 
+.h2div:hover:after
+{
+  right:10px; 
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+       -moz-transform:skew(8deg) rotate(3deg);     
+        -ms-transform:skew(8deg) rotate(3deg);     
+         -o-transform:skew(8deg) rotate(3deg); 
+            transform:skew(8deg) rotate(3deg);
 }
 
 .h2name {
@@ -158,7 +247,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   
-  background-color: #fffdf6;
+  background-color: #f0eee5;
 }
 
 .displaydiv {
@@ -174,17 +263,17 @@ body {
   padding: 20px;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f5f5f5;
-}
-
-.footerdiv {
-
+  background-color: #515151;
 }
 
 .navbar-brand {
-  font-family: 'Coming Soon', cursive;
+  font-family: 'Arvo', serif;
   font-size: 20px;
+  color: #5cb1dd !important;
+
 }
+
+
 
 .wrapper {
   padding-top: 110px
