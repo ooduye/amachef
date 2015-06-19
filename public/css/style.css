@@ -8,6 +8,10 @@
   height: 450px;
 }
 
+.myrecipes {
+  text-align: center;
+}
+
 
 .navcolor {
   color: #5cb1dd !important;
@@ -270,6 +274,10 @@ body {
   position: fixed;
   bottom: 60px;
 }*/
+
+.myrecipe {
+  text-align: center;
+}
 
 .navbar-brand {
   font-family: 'Arvo', serif;

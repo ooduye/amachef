@@ -119,11 +119,18 @@ app.controller("recipeCtrl", ['$scope', '$stateParams', '$http', '$location', fu
 app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toastr", function($scope, $stateParams, $http, $location, toastr) {
   $scope.currentPage = 1;
   $scope.pageSize = 15;
+
+  $scope.noNewRecipe = '';
+
   $scope.userid = $stateParams.uid;
   $http.get('/api/users/' + $scope.userid + '/recipes')
     .success(function(data) {
       if ((data.message === "Error getting recipes.")) {
         $location.path('/');
+        return;
+      }
+      if(data.length === 0){
+        $scope.noNewRecipe = 'You have no recipe';
         return;
       }
       // if ((data.message === "Unauthorized Access")) {
