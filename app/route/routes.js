@@ -12,10 +12,10 @@ module.exports = function(app, passport) {
   app.get('/api/recipe', recipe.getReqRecipes);
   app.get('/api/recipes/:recipe_id', recipe.getRecipe);
   app.get('/api/users/', user.isLoggedIn, user.getAllUsers);
-  app.get('/api/users/:user_id/recipes', user.isLoggedIn, user.getUserRecipes);
+  app.get('/api/users/:user_id/recipes', user.getUserRecipes);
 
   // create recipe and send back all recipes after creation
-  app.post('/api/recipes', user.isLoggedIn, recipe.createNewRecipe);
+  app.post('/api/recipes', recipe.createNewRecipe);
 
   // create a new user, process the signup form
   app.post('/api/signup', passport.authenticate('local-signup', {failureFlash: true}), user.createNewUser);
@@ -43,12 +43,12 @@ module.exports = function(app, passport) {
 
 
   // edit a recipe
-  app.put('/api/recipes/:recipe_id', user.isLoggedIn, recipe.editRecipe);
+  app.put('/api/recipes/:recipe_id', recipe.editRecipe);
   app.put('/api/users/:user_id', user.isLoggedIn, user.editUser);
 
 
   // delete a recipe
-  app.delete('/api/recipes/:recipe_id', user.isLoggedIn, recipe.deleteRecipe);
+  app.delete('/api/recipes/:recipe_id', recipe.deleteRecipe);
   app.delete('/api/users/:user_id', user.isLoggedIn, user.deleteUser);
 
   // login a user

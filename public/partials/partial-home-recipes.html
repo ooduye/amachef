@@ -1,17 +1,20 @@
 <div class="container main" ng-init="getAllRecipes()">
   <div class="row">
-    <div class="col-md-4 col-sm-6 portfolio-item" ng-repeat="recipe in recipes">
+    <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item" dir-paginate="recipe in recipes | itemsPerPage: pageSize" current-page="currentPage">
       <div class="portfolio-hover">
         <div class="portfolio-hover-content">
         </div>
       </div>
       <div class="portfolio-caption">
         <div class="h2div">
-        <h2 class="h2name" ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
+          <h2 class="h2name" ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
         <h4 class="text-muted">Preparation Time</h4> <span class="cookSpan">{{recipe.cookTime}}</span>
         <h4 class="text-muted">Ingredients</h4>
         <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}{{$last ? '' : ', '}}</div>
       </div>
+    </div>
+    <div class="text-center">
+      <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
     </div>
   </div>
 </div>

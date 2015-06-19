@@ -94,7 +94,7 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  editRecipe: function(req, res, next) {
+  editRecipe: function(req, res) {
     Recipe.findById(req.params.recipe_id, function(err, recipe) {
       if (err)
         res.send(err);
@@ -107,11 +107,12 @@ module.exports = {
 
       // get and return all the recipes after you create another
       recipe.save(function(err, recipes) {
-        if (err)
+        if (err) {
           res.send(err)
-        res.json(recipes);
+        }
+
+        res.json({message: 'Saved'});
       });
-      next();
     });
   },
   /**
@@ -120,20 +121,16 @@ module.exports = {
    * @param  {[res]}
    * @return {[void]}
    */
-  deleteRecipe: function(req, res, next) {
+  deleteRecipe: function(req, res) {
     Recipe.remove({
       _id: req.params.recipe_id
     }, function(err, recipe) {
       if (err)
         res.send(err);
 
-      // get and return all the recipes after you create another
-      Recipe.find(function(err, recipes) {
-        if (err)
-          res.send(err)
-        res.json(recipes);
+      res.json({
+        message: 'Successfully deleted'
       });
-      next();
     });
   },
   /**

@@ -13,6 +13,10 @@
   color: red;
 }
 
+.tips {
+  float: right;
+}
+
 .title {
   padding-top: 80px;
   color: #fff;
