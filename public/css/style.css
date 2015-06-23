@@ -8,10 +8,27 @@
   height: 450px;
 }
 
+.img-wrapper {
+  background: #383838; 
+  width: 100%;
+}
+
+.img-responsive {
+  width: 1000px;
+  height: 200px;
+}
+
 .myrecipes {
   text-align: center;
 }
 
+.andela {
+  color: #5cb1dd;
+}
+
+a.andela:hover {
+  color: #00A3FB;
+}
 
 .navcolor {
   color: #5cb1dd !important;
@@ -24,6 +41,20 @@
 
 .errorParagraph {
   text-align: center;
+  color: red;
+}
+
+.copyright {
+  float: left;
+  color: #ffffff;
+}
+
+.made {
+  float: right;
+  color: #ffffff;
+}
+
+.heart {
   color: red;
 }
 
@@ -148,6 +179,7 @@
   margin-bottom: 20px;
   text-align: center;
   position: relative;
+  font-family: 'Raleway', sans-serif;
 }
 
 .portfolio-caption:before, .portfolio-caption:after
@@ -231,6 +263,7 @@
 
 .h2name {
   color: #FFFFFF;
+  font-size: 18px;
   /*#337ab7*/
 }
 

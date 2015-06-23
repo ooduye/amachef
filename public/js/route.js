@@ -1,7 +1,7 @@
 var app = angular.module('amachef', ['ui.router', 'ngStorage', 'toastr', 'angularUtils.directives.dirPagination']);
 
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+$(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 app.config(function($stateProvider, $urlRouterProvider) {

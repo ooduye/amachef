@@ -1,10 +1,13 @@
-<div class="container main" ng-init="getAllRecipes()">
+<div class="container-fluid main" ng-init="getAllRecipes()">
   <div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item" dir-paginate="recipe in recipes | itemsPerPage: pageSize" current-page="currentPage">
+    <div class="col-md-3 col-sm-6 col-xs-12 portfolio-item" dir-paginate="recipe in recipes | itemsPerPage: pageSize" current-page="currentPage">
       <div class="portfolio-hover">
         <div class="portfolio-hover-content">
         </div>
       </div>
+      <div class="img-wrapper">
+          <img src="../images/background-image.jpg" class="img-responsive" alt="">
+        </div>
       <div class="portfolio-caption">
         <div class="h2div">
           <h2 class="h2name" ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>

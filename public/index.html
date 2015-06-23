@@ -12,7 +12,6 @@
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css" />
   <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
-
   <!-- JavaScript files
     ================================================== -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -28,7 +27,7 @@
   <script src="bower_components/ngstorage/ngStorage.js"></script>
 </head>
 
-<body >
+<body>
   <nav class="navbar navbar-default navbar-fixed-top navbarstyle" ng-controller="navCtrl">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -43,25 +42,38 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right navstyle">
           <li><a class="navcolor" ui-sref="signup" ng-hide="current_user"><b>CREATE AN ACCOUNT</b></a></li>
-          
           <li><a class="navcolor" ui-sref="login" ng-hide="current_user"><b>LOGIN</b></a></li>
           <li>
             <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe"></a>
           </li>
-          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user"><b>{{current_user.userName | uppercase}}</b></a></li>
+          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user"><b>MY RECIPES</b></a></li>
           <li><a class="navcolor" ui-sref="home" ng-show="current_user" ng-click="logoutUser()"><b>LOGOUT</b></a></li>
-        </ul> 
+        </ul>
       </div>
     </div>
   </nav>
-
   <div ui-view></div>
   <footer class="footer">
     <div class="container footerdiv">
-      <p class="text-muted">Copyright &copy 2015. Designed by Oduye Oluwayemisi</p>
+      <p class="text-muted"><span class="copyright">Copyright &copy 2015.</span> <span class="made">Made with <span class="glyphicon glyphicon-heart heart" aria-hidden="true"></span> from <a class="andela" href="www.andela.com"><b>Andela</b></a></span></p>
     </div>
   </footer>
-  
+  <script>
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-64422000-1', 'auto');
+  ga('send', 'pageview');
+  </script>
 </body>
 
 </html>
