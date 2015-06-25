@@ -61,8 +61,10 @@ app.controller("signupCtrl", ["$scope", "info", "$location", "toastr", function(
 app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location", "toastr", function($scope, info, $localStorage, $location, toastr) {
   $scope.addNewRecipe = function() {
     $scope.user = $localStorage.user._id;
+    $scope.ingredients = $scope.ingredients.split(', ').join(',');
     var newRecipe = {
       name: $scope.name,
+      imageUrl: $scope.imageUrl,
       category: $scope.category,
       cookTime: $scope.cookTime,
       ingredients: ($scope.ingredients.toLowerCase()).split(','),
@@ -81,25 +83,6 @@ app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location",
 }]);
 
 app.controller("recipeCtrl", ['$scope', '$stateParams', '$http', '$location', function($scope, $stateParams, $http, $location) {
-
-  // var myImage = document.getElementById("myPhoto");
-  // var imageArray = ["../images/tip.jpg", "../images/tip1.jpg", "../images/tip2.jpg", "../images/tip3.jpg", "../images/tip4.jpg", "../images/tip5.jpg", "../images/tip6.jpg", "../images/tip7.jpg", "../images/tip8.jpg", "../images/tip9.jpg"];
-  // var imageIndex = 0;
-
-  // function changeImage() {
-  //   myPhoto.setAttribute("src", imageArray[imageIndex]);
-  //   imageIndex++;
-  //   if (imageIndex >= imageArray.length) {
-  //     imageIndex = 0;
-  //   }
-  // }
-
-  // var intervalHandler = setInterval(changeImage, 3000);
-  // myPhoto.onclick = function() {
-  //   clearInterval(intervalHandler);
-  // }
-
-
 
   $scope.recipeId = $stateParams.rid;
   $http.get('/api/recipes/' + $scope.recipeId)
@@ -133,12 +116,6 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
         $scope.noNewRecipe = 'You have no recipe';
         return;
       }
-      // if ((data.message === "Unauthorized Access")) {
-      //   $rootScope.current_user = info.getUser();
-      //   toastr.warning('Please login again', 'Warning');
-      //   $rootScope.logoutUser();
-      //   $location.path('/login');
-      // }
       $scope.userRecipes = data;
     })
     .error(function(err) {
@@ -148,11 +125,14 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
   $scope.editRecipe = function(recipe) {
     $scope.editing = {};
     $scope.editing.id = recipe._id;
+    $scope.editing.imageUrl = recipe.imageUrl;
     $scope.editing.name = recipe.name;
     $scope.editing.category = recipe.category;
     $scope.editing.cookTime = recipe.cookTime;
-    $scope.editing.ingredients = recipe.ingredients;
+    $scope.editing.ingredients = recipe.ingredients; 
     $scope.editing.method = recipe.method;
+
+    console.log($scope.editing.ingredients);
 
   }
 

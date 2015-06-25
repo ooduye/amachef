@@ -70,6 +70,7 @@ module.exports = {
     // create a recipe, information comes from AJAX request from Angular
     Recipe.create({
       name: req.body.name,
+      imageUrl: req.body.imageUrl,
       category: req.body.category,
       cookTime: req.body.cookTime,
       ingredients: req.body.ingredients,
@@ -100,6 +101,7 @@ module.exports = {
         res.send(err);
 
       recipe.name = req.body.name;
+      recipe.imageUrl = req.body.imageUrl;
       recipe.category = req.body.category;
       recipe.cookTime = req.body.cookTime;
       recipe.ingredients = req.body.ingredients;

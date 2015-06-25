@@ -11,15 +11,18 @@
 .img-wrapper {
   background: #383838; 
   width: 100%;
+  
 }
 
 .img-responsive {
   width: 1000px;
-  height: 200px;
+  height: 180px;
+  position: relative;
 }
 
 .myrecipes {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .andela {
@@ -80,6 +83,15 @@ a.andela:hover {
   padding: 20px;
 }
 
+.editbtm {
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+.deletebtm {
+  margin-top: -5px;
+}
+
 #q {
   border: none;
   outline: none;
@@ -103,33 +115,50 @@ a.andela:hover {
   text-align: center;
 }
 
-.addrecipeinput {
-  padding: 5px;
-  width: 300px;
-  border-radius: 6px;
-  height: 35px;
-  font-size: 15px;
+.recipeingredients {
+  overflow: hidden;
+  /*text-overflow: ellipsis;*/
+  /*white-space: nowrap;*/
+  /*overflow: ellipsis;*/
+  /*background-color: red;*/
+  height: 60px;
 }
 
 .recipediplay {
   display: inline-block;
+  /*overflow: ellipsis;*/
+    /*width: 250px;*/
+  white-space: nowrap;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #E4EDF4;
+  border-radius: 6px 6px 6px 6px !important;
+  /*overflow: hidden;*/
+  /*text-overflow: ellipsis;*/
+
+  border: 1px solid #e4edf4;
+  margin: 2px 2px 2px 0;
+
 }
 
 .addrecipetextarea {
-  border-radius: 6px;
-  padding: 5px;
-  font-size: 15px;
+  width: 400px;
 }
 
 .control-group {
   margin-bottom: 30px;
 }
 
-.controls {
+/*.controls {
   margin-top: 10px;
+}*/
+
+.edittextarea {
+  margin-top: 5px;
 }
 
 .nochrome {
+  margin-top: 18px;
   background-color: #5cb1dd;
   width: 100px;
   height: 36px;
@@ -144,13 +173,14 @@ a.andela:hover {
   margin-top: 80px;
 }
 
-.addrecipediv {
-  margin-top: 50px;
-  text-align: center;
+.btn {
+  margin-bottom: 20px;
 }
 
 .legend {
   font-size: 35px;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .control-label {
@@ -158,7 +188,7 @@ a.andela:hover {
 }
 
 .mainuser{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .main {
@@ -175,11 +205,16 @@ a.andela:hover {
 
 .portfolio-caption{
   background-color: #FFFFFF;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-bottom: 20px;
+  margin-top: -10px;
   margin-bottom: 20px;
   text-align: center;
   position: relative;
   font-family: 'Raleway', sans-serif;
+  /*max-height: 197px;*/
 }
 
 .portfolio-caption:before, .portfolio-caption:after
@@ -217,11 +252,12 @@ a.andela:hover {
   cursor: pointer;
 }
 
-.h2div {
+/*.h2div {
   background-color: #5cb1dd;
   cursor: pointer;
-  padding: 5px;
-  /*#fff0aa*/
+  padding: 0px;
+  height: 40px;
+  margin-top: -20px;
 }
 
 .h2div:hover{
@@ -263,8 +299,67 @@ a.andela:hover {
 
 .h2name {
   color: #FFFFFF;
-  font-size: 18px;
-  /*#337ab7*/
+  font-size: 20px;
+  padding: 5px;
+}
+*/
+
+.h2namenew {
+  color: #FFFFFF;
+  font-size: 15px;
+  text-align: center;
+  margin-top: -15px;
+  padding: 5px;
+  background-color: #5cb1dd;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+}
+
+.h2namenew:hover
+{
+    position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.h2namenew:hover:before, .h2namenew:hover:after
+{
+  content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+} 
+.h2namenew:hover:after
+{
+  right:10px; 
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+       -moz-transform:skew(8deg) rotate(3deg);     
+        -ms-transform:skew(8deg) rotate(3deg);     
+         -o-transform:skew(8deg) rotate(3deg); 
+            transform:skew(8deg) rotate(3deg);
+}
+
+.cookSpan {
+  float: left;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+
+.heartSpan {
+  float: right;
+  margin-top: -10px;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #777;
 }
 
 .recipeSpan {
@@ -284,7 +379,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   
-  background-color: #f0eee5;
+  background-color: #F4F4F4;
 }
 
 .displaydiv {
@@ -302,11 +397,6 @@ body {
   height: 60px;
   background-color: #515151;
 }
-/*
-.pagination {
-  position: fixed;
-  bottom: 60px;
-}*/
 
 .myrecipe {
   text-align: center;
@@ -372,28 +462,6 @@ input[type="password"] {
   padding-top: 140px;
 }
 
-#formwrap {
-
-  background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* Mozilla Firefox */
-  
-  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* Opera */
-  
-  background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* Webkit (Safari/Chrome 10) */
-  
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
-  /* Webkit (Chrome 11+) */
-  
-  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
-  /* W3C Markup, IE10 Release Preview */
-  
-  background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 legend {
   color: #141823;
   font-size: 25px;
@@ -446,3 +514,37 @@ legend {
     font-weight: bold;
   }
 }
+
+
+.form{
+  background:#f1f1f1; width: 500px; margin:0 auto; padding-left:50px; padding-top:20px;
+}
+.form fieldset{border:0px; padding:0px; margin:0px;}
+.form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
+
+.form input[type="text"] { width: 400px; }
+.form label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
+.form input, textarea { background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(122, 192, 0, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px; }
+.form input:focus, textarea:focus { border: 1px solid #ff5400; background-color: rgba(255, 255, 255, 1); }
+.form .select-style {
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: url(images/select-arrow.png), 
+    -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 0px solid #FFF;
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;}
+
+

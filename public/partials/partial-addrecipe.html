@@ -1,51 +1,36 @@
-<form class="form-horizontal addrecipediv" id="formwrap" ng-submit="addNewRecipe()">
-  <fieldset>
-    <div id="legend">
-      <legend class="legend">Add New Recipe</legend>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Recipe Name</label>
-      <div class="controls">
-        <input type="text" class="addrecipeinput" ng-model="name" placeholder="Name of Recipe" required="" class="input-xlarge">
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <label class="control-label">Recipe Category</label>
-      <div class="controls">
-        <input type="text" class="addrecipeinput" ng-model="category" placeholder="Category of Recipe" required="" class="input-xlarge">
-        <p class="help-block">E.g.: Salads, Soup, Pasta, etc...</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <label class="control-label">Cook Time</label>
-      <div class="controls">
-        <input type="text" class="addrecipeinput" ng-model="cookTime" placeholder="How long does it take to prepare it?" required="" class="input-xlarge">
-        <p class="help-block">E.g.: 5mins, 1hr, 1hr30mins, etc...</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <label class="control-label">Ingredients</label>
-      <div class="controls">
-        <textarea class="addrecipetextarea" ng-model="ingredients" placeholder="Ingredients needed to prepare recipe" required="" class="input-xlarge" rows="4" cols="40"></textarea>
-        <p class="help-block">Enter ingredients and separate them by commas</p>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label">Method</label>
-      <div class="controls">
-        <textarea class="addrecipetextarea" ng-model="method" placeholder="Method to prepare recipe" required="" class="input-xlarge" rows="6" cols="50"></textarea>
-        <p class="help-block">Enter methods and separate them by commas</p>
-      </div>
-    </div>
-    <p class="errorParagraph">{{errorMessage}}</p>
-    <div class="control-group">
-      <div class="controls">
-        <button class="btn btn-success" type="submit">Add Recipe</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+<div class="container main">
+  <div id="legend">
+    <legend class="legend">Add New Recipe</legend>
+  </div>
+  <div class="form">
+    <form id="contactform" class="addrecipediv" ng-submit="addNewRecipe()">
+      <p class="contact">
+        <label class="control-label">Recipe Name</label>
+      </p>
+      <input type="text" ng-model="name" placeholder="Name of Recipe" required="" class="input-xlarge">
+      <p class="contact">
+        <label class="control-label">Recipe Image</label>
+      </p>
+      <input type="text" ng-model="imageUrl" placeholder="Image of Recipe" required="" class="input-xlarge">
+      <p class="contact">
+        <label class="control-label">Recipe Category</label>
+      </p>
+      <input type="text" ng-model="category" placeholder="E.g.: Salads, Soup, Pasta, etc..." required="" class="input-xlarge">
+      <p class="contact">
+        <label class="control-label">Preparation Time</label>
+      </p>
+      <input type="text" ng-model="cookTime" placeholder="E.g.: 5mins, 1hr, 1hr30mins, etc..." required="" class="input-xlarge">
+      <p class="contact">
+        <label class="control-label">Ingredients</label>
+      </p>
+      <textarea class="addrecipetextarea" ng-model="ingredients" placeholder="Ingredients needed to prepare recipe separated by commas" required="" class="input-xlarge" rows="4" cols="40"></textarea>
+      <p class="contact">
+        <label class="control-label">Method</label>
+      </p>
+      <textarea class="addrecipetextarea" ng-model="method" placeholder="Method to prepare recipe separated by commas" required="" class="input-xlarge" rows="6" cols="50"></textarea>
+      <p class="errorParagraph">{{errorMessage}}</p>
+      <br>
+      <button class="btn btn-success" type="submit">Add Recipe</button>
+    </form>
+  </div>
+</div>

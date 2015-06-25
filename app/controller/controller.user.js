@@ -1,6 +1,6 @@
 var User = require('../models/user');
 var Recipe = require('../models/recipe');
-var jwt = require('jsonwebtoken');
+
 /**
  * [exports makes all the functions accessible by other files]
  * @type {Object}
@@ -75,6 +75,7 @@ module.exports = {
       user.name = req.body.name;
       user.password = req.body.password;
       user.email = req.body.email;
+      user.userImageUrl = req.body.userImageUrl;
 
       // get and return all the users after you create another
       user.save(function(err, users) {

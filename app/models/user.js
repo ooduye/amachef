@@ -14,6 +14,9 @@ var UserSchema = new Schema({
   },
   email: {
     type: String
+  },
+  userImageUrl: {
+    type: String
   }
 })
 

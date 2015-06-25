@@ -8,7 +8,7 @@ var RecipeSchema = new Schema({
   name: {
     type: String
   },
-  imageURL: {
+  imageUrl: {
     type: String
   },
   category: {

@@ -6,14 +6,17 @@
         </div>
       </div>
       <div class="img-wrapper">
-          <img src="../images/background-image.jpg" class="img-responsive" alt="">
+          <img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt="">
+          <div class="h2namenew">
+          <h2  ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
         </div>
       <div class="portfolio-caption">
-        <div class="h2div">
-          <h2 class="h2name" ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
-        <h4 class="text-muted">Preparation Time</h4> <span class="cookSpan">{{recipe.cookTime}}</span>
-        <h4 class="text-muted">Ingredients</h4>
-        <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}{{$last ? '' : ', '}}</div>
+        <div class="recipeingredients">
+        <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}</div>
+        </div>
+        <hr width="90%" size="5" align="center">
+        <span class="glyphicon glyphicon-time cookSpan"> {{recipe.cookTime}}</span>
+        <span class="glyphicon glyphicon-heart heart heartSpan"></span>    
       </div>
     </div>
     <div class="text-center">

@@ -8,15 +8,20 @@
           <div class="portfolio-hover-content">
           </div>
         </div>
+        <div class="img-wrapper">
+          <img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt="">
+          <div class="h2namenew">
+            <h2 ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
+        </div>
         <div class="portfolio-caption">
-          <div class="h2div">
-            <h2 class="h2name" ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
-          <h4 class="text-muted">Preparation Time</h4> <span class="cookSpan">{{recipe.cookTime}}</span>
-          <h4 class="text-muted">Ingredients</h4>
-          <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}{{$last ? '' : ', '}}</div>
-          <br/>
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editModal" ng-click="editRecipe(recipe)">Edit</button>
-          <button type="button" class="btn btn-danger btn-sm" ng-click="deleteRecipe(recipe._id, $index)">Delete</button>
+          <div class="recipeingredients">
+            <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}</div>
+          </div>
+          <hr width="90%" size="5" align="center">
+          <span class="glyphicon glyphicon-time cookSpan"> {{recipe.cookTime}}</span>
+          <span class="heartSpan">
+        <button type="button" class="btn btn-info btn-sm editbtm" data-toggle="modal" data-target="#editModal" ng-click="editRecipe(recipe)">Edit</button>
+          <button type="button" class="btn btn-danger btn-sm deletebtm" ng-click="deleteRecipe(recipe._id, $index)">Delete</button></span>
         </div>
       </div>
       <div class="text-center pagination">
@@ -50,11 +55,11 @@
           </div>
           <div class="form-group">
             <label for="ingredients">Ingredients</label>
-            <textarea class="form-control" placeholder="Ingredients for Recipe" rows="5" ng-model="editing.ingredients"></textarea>
+            <textarea class="form-control edittextarea" placeholder="Ingredients for Recipe" rows="5" ng-model="editing.ingredients"></textarea>
           </div>
           <div class="form-group">
             <label for="method">Method</label>
-            <textarea class="form-control" placeholder="Method to prepare Recipe" rows="5" ng-model="editing.method"></textarea>
+            <textarea class="form-control edittextarea" placeholder="Method to prepare Recipe" rows="5" ng-model="editing.method"></textarea>
           </div>
       </div>
       <div class="modal-footer">
