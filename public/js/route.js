@@ -4,6 +4,7 @@ $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
+
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $urlRouterProvider.when('/home', '/home/allrecipes');

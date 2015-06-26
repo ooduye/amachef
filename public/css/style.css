@@ -14,10 +14,13 @@
   
 }
 
+.img-wrapper:hover {
+  opacity: .8;
+}
+
 .img-responsive {
   width: 1000px;
   height: 180px;
-  position: relative;
 }
 
 .myrecipes {
@@ -40,6 +43,7 @@ a.andela:hover {
 
 .navbarstyle {
   background: #ffffff;
+  opacity: .9;
 }
 
 .errorParagraph {
@@ -306,14 +310,18 @@ a.andela:hover {
 
 .h2namenew {
   color: #FFFFFF;
-  font-size: 15px;
-  text-align: center;
-  margin-top: -15px;
-  padding: 5px;
+  font-size: 20px;
+  line-height: 22px;
+  /*position: relative;*/
+  /*text-align: center;*/
+  padding: 10px;
   background-color: #5cb1dd;
   cursor: pointer;
   font-family: 'Raleway', sans-serif;
-  height: 73px;
+  height: 75px;
+  display: block;
+  /*display: inline;*/
+  
 }
 
 .h2namenew:hover

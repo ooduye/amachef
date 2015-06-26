@@ -9,10 +9,10 @@
           </div>
         </div>
         <div class="img-wrapper">
-          <img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt="">
-          <div class="h2namenew">
-            <h2 ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</h2></div>
+          <img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt=""> 
         </div>
+        <div class="h2namenew">
+          <p  ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</p></div>
         <div class="portfolio-caption">
           <div class="recipeingredients">
             <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}</div>
