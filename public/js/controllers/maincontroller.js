@@ -62,13 +62,15 @@ app.controller("addRecipeCtrl", ["$scope", "info", "$localStorage", "$location",
   $scope.addNewRecipe = function() {
     $scope.user = $localStorage.user._id;
     $scope.ingredients = $scope.ingredients.split(', ').join(',');
+    $scope.method = $scope.method.split('. ').join('.');
+    $scope.method = $scope.method.replace(/\.$/, "");
     var newRecipe = {
       name: $scope.name,
       imageUrl: $scope.imageUrl,
       category: $scope.category,
       cookTime: $scope.cookTime,
       ingredients: ($scope.ingredients.toLowerCase()).split(','),
-      method: ($scope.method).split(','),
+      method: ($scope.method).split('.'),
       user: $scope.user
     };
     info.addNewRecipe(newRecipe, function(data) {
@@ -129,15 +131,27 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
     $scope.editing.name = recipe.name;
     $scope.editing.category = recipe.category;
     $scope.editing.cookTime = recipe.cookTime;
-    $scope.editing.ingredients = recipe.ingredients; 
-    $scope.editing.method = recipe.method;
-
-    console.log($scope.editing.ingredients);
-
+    $scope.editing.ingredients = recipe.ingredients.join(); 
+    $scope.editing.method = recipe.method.join(".");
   }
 
   $scope.saveEdittedRecipe = function() {
-    $http.put('/api/recipes/' + $scope.editing.id, $scope.editing)
+
+    $scope.editing.ingredients = $scope.editing.ingredients.split(', ').join(',');
+    $scope.editing.method = $scope.editing.method.split('. ').join('.');
+    $scope.editing.method = $scope.editing.method.replace(/\.$/, "");
+
+     $scope.editing = {
+      _id: $scope.editing.id,
+      name: $scope.editing.name,
+      imageUrl: $scope.editing.imageUrl,
+      category: $scope.editing.category,
+      cookTime: $scope.editing.cookTime,
+      ingredients: ($scope.editing.ingredients.toLowerCase()).split(','),
+      method: ($scope.editing.method).split('.')
+    }
+
+    $http.put('/api/recipes/' + $scope.editing._id, $scope.editing)
       .success(function(data) {
         if (data.message === 'Saved') {
           $http.get('/api/users/' + $scope.userid + '/recipes').success(function(data) {

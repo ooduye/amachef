@@ -9,8 +9,8 @@
           </div>
         </div>
         <div class="img-wrapper">
-          <img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt=""> 
-        </div>
+          <a id="single_2" href="{{recipe.imageUrl}}" title="{{recipe.name}}"><img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt=""></a>
+      </div>
         <div class="h2namenew">
           <p  ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</p></div>
         <div class="portfolio-caption">
