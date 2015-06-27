@@ -114,7 +114,7 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
         $location.path('/');
         return;
       }
-      if(data.length === 0){
+      if (data.length === 0) {
         $scope.noNewRecipe = 'You have no recipe';
         return;
       }
@@ -131,7 +131,7 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
     $scope.editing.name = recipe.name;
     $scope.editing.category = recipe.category;
     $scope.editing.cookTime = recipe.cookTime;
-    $scope.editing.ingredients = recipe.ingredients.join(); 
+    $scope.editing.ingredients = recipe.ingredients.join();
     $scope.editing.method = recipe.method.join(".");
   }
 
@@ -141,7 +141,7 @@ app.controller("userCtrl", ['$scope', '$stateParams', '$http', '$location', "toa
     $scope.editing.method = $scope.editing.method.split('. ').join('.');
     $scope.editing.method = $scope.editing.method.replace(/\.$/, "");
 
-     $scope.editing = {
+    $scope.editing = {
       _id: $scope.editing.id,
       name: $scope.editing.name,
       imageUrl: $scope.editing.imageUrl,

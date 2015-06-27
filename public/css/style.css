@@ -9,9 +9,8 @@
 }
 
 .img-wrapper {
-  background: #383838; 
+  background: #383838;
   width: 100%;
-  
 }
 
 .img-wrapper:hover {
@@ -38,7 +37,7 @@ a.andela:hover {
 
 .navcolor {
   color: #5cb1dd !important;
-  font-weight: 400px; 
+  font-weight: 400px;
 }
 
 .navbarstyle {
@@ -125,13 +124,15 @@ a.andela:hover {
   /*white-space: nowrap;*/
   /*overflow: ellipsis;*/
   /*background-color: red;*/
+  
   height: 60px;
 }
 
 .recipediplay {
   display: inline-block;
   /*overflow: ellipsis;*/
-    /*width: 250px;*/
+  /*width: 250px;*/
+  
   white-space: nowrap;
   font-size: 12px;
   padding: 5px;
@@ -139,10 +140,9 @@ a.andela:hover {
   border-radius: 6px 6px 6px 6px !important;
   /*overflow: hidden;*/
   /*text-overflow: ellipsis;*/
-
+  
   border: 1px solid #e4edf4;
   margin: 2px 2px 2px 0;
-
 }
 
 .addrecipetextarea {
@@ -152,7 +152,6 @@ a.andela:hover {
 .control-group {
   margin-bottom: 30px;
 }
-
 /*.controls {
   margin-top: 10px;
 }*/
@@ -191,7 +190,7 @@ a.andela:hover {
   font-size: 23px;
 }
 
-.mainuser{
+.mainuser {
   margin-top: 50px;
 }
 
@@ -207,7 +206,7 @@ a.andela:hover {
   font-size: 17px;
 }
 
-.portfolio-caption{
+.portfolio-caption {
   background-color: #FFFFFF;
   padding-top: 15px;
   padding-left: 5px;
@@ -221,8 +220,8 @@ a.andela:hover {
   /*max-height: 197px;*/
 }
 
-.portfolio-caption:before, .portfolio-caption:after
-{
+.portfolio-caption:before,
+.portfolio-caption:after {
   z-index: -1;
   position: absolute;
   content: "";
@@ -230,7 +229,7 @@ a.andela:hover {
   left: 10px;
   width: 50%;
   top: 80%;
-  max-width:300px;
+  max-width: 300px;
   background: #777;
   -webkit-box-shadow: 0 15px 10px #777;
   -moz-box-shadow: 0 15px 10px #777;
@@ -241,8 +240,8 @@ a.andela:hover {
   -ms-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
-.portfolio-caption:after
-{
+
+.portfolio-caption:after {
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -o-transform: rotate(3deg);
@@ -255,7 +254,6 @@ a.andela:hover {
 .username {
   cursor: pointer;
 }
-
 /*.h2div {
   background-color: #5cb1dd;
   cursor: pointer;
@@ -314,6 +312,7 @@ a.andela:hover {
   line-height: 22px;
   /*position: relative;*/
   /*text-align: center;*/
+  
   padding: 10px;
   background-color: #5cb1dd;
   cursor: pointer;
@@ -321,40 +320,39 @@ a.andela:hover {
   height: 75px;
   display: block;
   /*display: inline;*/
-  
 }
 
-.h2namenew:hover
-{
-    position:relative;       
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+.h2namenew:hover {
+  position: relative;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-.h2namenew:hover:before, .h2namenew:hover:after
-{
-  content:"";
-    position:absolute; 
-    z-index:-1;
-    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    box-shadow:0 0 20px rgba(0,0,0,0.8);
-    top:10px;
-    bottom:10px;
-    left:0;
-    right:0;
-    -moz-border-radius:100px / 10px;
-    border-radius:100px / 10px;
-} 
-.h2namenew:hover:after
-{
-  right:10px; 
-    left:auto;
-    -webkit-transform:skew(8deg) rotate(3deg); 
-       -moz-transform:skew(8deg) rotate(3deg);     
-        -ms-transform:skew(8deg) rotate(3deg);     
-         -o-transform:skew(8deg) rotate(3deg); 
-            transform:skew(8deg) rotate(3deg);
+
+.h2namenew:hover:before,
+.h2namenew:hover:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
+}
+
+.h2namenew:hover:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
 }
 
 .cookSpan {
@@ -386,8 +384,8 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
   
+  margin-bottom: 60px;
   background-color: #F4F4F4;
 }
 
@@ -403,6 +401,7 @@ body {
   text-align: center;
   padding: 20px;
   /* Set the fixed height of the footer here */
+  
   height: 60px;
   background-color: #515151;
 }
@@ -415,10 +414,7 @@ body {
   font-family: 'Arvo', serif;
   font-size: 20px;
   color: #5cb1dd !important;
-
 }
-
-
 
 .wrapper {
   padding-top: 110px
@@ -524,17 +520,57 @@ legend {
   }
 }
 
-
-.form{
-  background:#f1f1f1; width: 500px; margin:0 auto; padding-left:50px; padding-top:20px;
+.form {
+  background: #f1f1f1;
+  width: 500px;
+  margin: 0 auto;
+  padding-left: 50px;
+  padding-top: 20px;
 }
-.form fieldset{border:0px; padding:0px; margin:0px;}
-.form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
 
-.form input[type="text"] { width: 400px; }
-.form label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
-.form input, textarea { background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(122, 192, 0, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px; }
-.form input:focus, textarea:focus { border: 1px solid #ff5400; background-color: rgba(255, 255, 255, 1); }
+.form fieldset {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.form p.contact {
+  font-size: 12px;
+  margin: 0px 0px 10px 0;
+  line-height: 14px;
+  font-family: Arial, Helvetica;
+}
+
+.form input[type="text"] {
+  width: 400px;
+}
+
+.form label {
+  color: #000;
+  font-weight: bold;
+  font-size: 12px;
+  font-family: Arial, Helvetica;
+}
+
+.form input,
+textarea {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(122, 192, 0, 0.15);
+  padding: 7px;
+  font-family: Keffeesatz, Arial;
+  color: #4b4b4b;
+  font-size: 14px;
+  -webkit-border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+.form input:focus,
+textarea:focus {
+  border: 1px solid #ff5400;
+  background-color: rgba(255, 255, 255, 1);
+}
+
 .form .select-style {
   -webkit-appearance: button;
   -webkit-border-radius: 2px;
@@ -542,8 +578,7 @@ legend {
   -webkit-padding-end: 20px;
   -webkit-padding-start: 2px;
   -webkit-user-select: none;
-  background-image: url(images/select-arrow.png), 
-    -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-image: url(images/select-arrow.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
   background-position: center right;
   background-repeat: no-repeat;
   border: 0px solid #FFF;
@@ -554,5 +589,5 @@ legend {
   padding-top: 5px;
   padding-bottom: 5px;
   text-overflow: ellipsis;
-  white-space: nowrap;}
-
+  white-space: nowrap;
+}

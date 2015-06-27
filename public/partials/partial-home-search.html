@@ -11,21 +11,22 @@
         </div>
         <div class="img-wrapper">
           <a id="single_2" href="{{recipe.imageUrl}}" title="{{recipe.name}}"><img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt=""></a>
-      </div>
-        <div class="h2namenew">
-          <p  ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</p></div>
-      <div class="portfolio-caption">
-        <div class="recipeingredients">
-        <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}</div>
         </div>
-        <hr width="90%" size="5" align="center">
-        <span class="glyphicon glyphicon-time cookSpan"> {{recipe.cookTime}}</span>
-        <span class="glyphicon glyphicon-heart heart heartSpan"></span>    
-      </div>
+        <div class="h2namenew">
+          <p ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</p>
+        </div>
+        <div class="portfolio-caption">
+          <div class="recipeingredients">
+            <div ng-repeat="item in recipe.ingredients" class="recipediplay"> {{item}}</div>
+          </div>
+          <hr width="90%" size="5" align="center">
+          <span class="glyphicon glyphicon-time cookSpan"> {{recipe.cookTime}}</span>
+          <span class="glyphicon glyphicon-heart heart heartSpan"></span>
+        </div>
       </div>
       <div class="text-center">
-      <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
-    </div>
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
+      </div>
     </div>
   </div>
 </div>
