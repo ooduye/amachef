@@ -2,6 +2,17 @@ var app = angular.module('amachef', ['ui.router', 'ngStorage', 'toastr', 'angula
 
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
+  
+  $("#single_2").fancybox({
+    openEffect: 'elastic',
+    closeEffect: 'elastic',
+
+    helpers: {
+      title: {
+        type: 'inside'
+      }
+    }
+  });
 });
 
 

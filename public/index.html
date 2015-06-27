@@ -10,21 +10,10 @@
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/jquery.fancybox.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css" />
   <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
-  <!-- JavaScript files
-    ================================================== -->
-  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-  <script type="text/javascript" src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
-  <script type="text/javascript" src="js/route.js"></script>
-  <script type="text/javascript" src="js/services/service.js"></script>
-  <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
-  <script type="text/javascript" src="bower_components/angular-utils-pagination/dirPagination.js"></script>
-  <script src="bower_components/ngstorage/ngStorage.js"></script>
+  
 </head>
 
 <body>
@@ -41,13 +30,13 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right navstyle">
-          <li><a class="navcolor" ui-sref="signup" ng-hide="current_user"><b>CREATE AN ACCOUNT</b></a></li>
-          <li><a class="navcolor" ui-sref="login" ng-hide="current_user"><b>LOGIN</b></a></li>
+          <li><a class="navcolor" ui-sref="signup" ng-hide="current_user" ng-cloak><b>CREATE AN ACCOUNT</b></a></li>
+          <li><a class="navcolor" ui-sref="login" ng-hide="current_user" ng-cloak><b>LOGIN</b></a></li>
           <li>
-            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe"></a>
+            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe" ng-cloak></a>
           </li>
-          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user"><b>MY RECIPES</b></a></li>
-          <li><a class="navcolor" ui-sref="home" ng-show="current_user" ng-click="logoutUser()"><b>LOGOUT</b></a></li>
+          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user" ng-cloak><b>MY RECIPES</b></a></li>
+          <li><a class="navcolor" ui-sref="home" ng-show="current_user" ng-click="logoutUser()" ng-cloak><b>LOGOUT</b></a></li>
         </ul>
       </div>
     </div>
@@ -75,6 +64,21 @@
   ga('create', 'UA-64422000-1', 'auto');
   ga('send', 'pageview');
   </script>
+
+  <!-- JavaScript files
+    ================================================== -->
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+  <script type="text/javascript" src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="js/route.js"></script>
+  <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="js/services/service.js"></script>
+  <script type="text/javascript" src="js/controllers/maincontroller.js"></script>
+  <script type="text/javascript" src="bower_components/angular-utils-pagination/dirPagination.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.js"></script>
 
 </body>
 
