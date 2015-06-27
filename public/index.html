@@ -43,13 +43,13 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right navstyle">
-          <li><a class="navcolor" ui-sref="signup" ng-hide="current_user" ng-cloak><b>CREATE AN ACCOUNT</b></a></li>
-          <li><a class="navcolor" ui-sref="login" ng-hide="current_user" ng-cloak><b>LOGIN</b></a></li>
+          <li><a class="navcolor" ui-sref="signup" ng-hide="current_user"><b>CREATE AN ACCOUNT</b></a></li>
+          <li><a class="navcolor" ui-sref="login" ng-hide="current_user"><b>LOGIN</b></a></li>
           <li>
-            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe" ng-cloak></a>
+            <a ui-sref="addrecipe" class="glyphicon glyphicon-plus" ng-show="current_user" data-toggle="tooltip" data-placement="bottom" title="Add Recipe"></a>
           </li>
-          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user" ng-cloak><b>MY RECIPES</b></a></li>
-          <li><a class="navcolor" ui-sref="home" ng-show="current_user" ng-click="logoutUser()" ng-cloak><b>LOGOUT</b></a></li>
+          <li><a class="navcolor" ui-sref="userrecipes({uid : current_user._id})" class="username" ng-show="current_user"><b>MY RECIPES</b></a></li>
+          <li><a class="navcolor" ui-sref="home" ng-show="current_user" ng-click="logoutUser()"><b>LOGOUT</b></a></li>
         </ul>
       </div>
     </div>
