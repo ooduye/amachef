@@ -120,27 +120,16 @@ a.andela:hover {
 
 .recipeingredients {
   overflow: hidden;
-  /*text-overflow: ellipsis;*/
-  /*white-space: nowrap;*/
-  /*overflow: ellipsis;*/
-  /*background-color: red;*/
-  
   height: 60px;
 }
 
 .recipediplay {
   display: inline-block;
-  /*overflow: ellipsis;*/
-  /*width: 250px;*/
-  
   white-space: nowrap;
   font-size: 12px;
   padding: 5px;
   background-color: #E4EDF4;
   border-radius: 6px 6px 6px 6px !important;
-  /*overflow: hidden;*/
-  /*text-overflow: ellipsis;*/
-  
   border: 1px solid #e4edf4;
   margin: 2px 2px 2px 0;
 }
@@ -152,9 +141,6 @@ a.andela:hover {
 .control-group {
   margin-bottom: 30px;
 }
-/*.controls {
-  margin-top: 10px;
-}*/
 
 .edittextarea {
   margin-top: 5px;
@@ -254,72 +240,17 @@ a.andela:hover {
 .username {
   cursor: pointer;
 }
-/*.h2div {
-  background-color: #5cb1dd;
-  cursor: pointer;
-  padding: 0px;
-  height: 40px;
-  margin-top: -20px;
-}
-
-.h2div:hover{
-
-}
-
-.h2div:hover
-{
-    position:relative;       
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-}
-.h2div:hover:before, .h2div:hover:after
-{
-  content:"";
-    position:absolute; 
-    z-index:-1;
-    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    box-shadow:0 0 20px rgba(0,0,0,0.8);
-    top:10px;
-    bottom:10px;
-    left:0;
-    right:0;
-    -moz-border-radius:100px / 10px;
-    border-radius:100px / 10px;
-} 
-.h2div:hover:after
-{
-  right:10px; 
-    left:auto;
-    -webkit-transform:skew(8deg) rotate(3deg); 
-       -moz-transform:skew(8deg) rotate(3deg);     
-        -ms-transform:skew(8deg) rotate(3deg);     
-         -o-transform:skew(8deg) rotate(3deg); 
-            transform:skew(8deg) rotate(3deg);
-}
-
-.h2name {
-  color: #FFFFFF;
-  font-size: 20px;
-  padding: 5px;
-}
-*/
 
 .h2namenew {
   color: #FFFFFF;
   font-size: 20px;
   line-height: 22px;
-  /*position: relative;*/
-  /*text-align: center;*/
-  
   padding: 10px;
   background-color: #5cb1dd;
   cursor: pointer;
   font-family: 'Raleway', sans-serif;
   height: 75px;
   display: block;
-  /*display: inline;*/
 }
 
 .h2namenew:hover {
@@ -383,8 +314,7 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  
+  /* Margin bottom by footer height */  
   margin-bottom: 60px;
   background-color: #F4F4F4;
 }
@@ -401,7 +331,6 @@ body {
   text-align: center;
   padding: 20px;
   /* Set the fixed height of the footer here */
-  
   height: 60px;
   background-color: #515151;
 }
@@ -525,7 +454,9 @@ legend {
   width: 500px;
   margin: 0 auto;
   padding-left: 50px;
+  padding-right: 50px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .form fieldset {

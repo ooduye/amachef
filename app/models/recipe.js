@@ -9,7 +9,8 @@ var RecipeSchema = new Schema({
     type: String
   },
   imageUrl: {
-    type: String
+    type: String,
+    default: 'images/default-food-img.jpg'
   },
   category: {
     type: String
