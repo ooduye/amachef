@@ -25,9 +25,9 @@
           <button type="button" class="btn btn-danger btn-sm deletebtm" ng-click="deleteRecipe(recipe._id, $index)">Delete</button></span>
         </div>
       </div>
-      <div class="text-center pagination">
-        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
-      </div>
+    </div>
+    <div id="outPopUp" class="text-center pagination">
+      <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
     </div>
   </div>
 </div>

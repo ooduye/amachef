@@ -241,27 +241,30 @@ a.andela:hover {
   cursor: pointer;
 }
 
+.hoverdiv {
+  cursor: pointer;
+}
+
 .h2namenew {
   color: #FFFFFF;
   font-size: 20px;
   line-height: 22px;
   padding: 10px;
   background-color: #5cb1dd;
-  cursor: pointer;
   font-family: 'Raleway', sans-serif;
   height: 75px;
   display: block;
 }
 
-.h2namenew:hover {
+.hoverdiv:hover {
   position: relative;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-.h2namenew:hover:before,
-.h2namenew:hover:after {
+.hoverdiv:hover:before,
+.hoverdiv:hover:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -276,7 +279,7 @@ a.andela:hover {
   border-radius: 100px / 10px;
 }
 
-.h2namenew:hover:after {
+.hoverdiv:hover:after {
   right: 10px;
   left: auto;
   -webkit-transform: skew(8deg) rotate(3deg);
@@ -314,7 +317,8 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */  
+  /* Margin bottom by footer height */
+  
   margin-bottom: 60px;
   background-color: #F4F4F4;
 }
@@ -324,6 +328,14 @@ body {
   padding: 10px;
 }
 
+
+
+#outPopUp {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -331,6 +343,7 @@ body {
   text-align: center;
   padding: 20px;
   /* Set the fixed height of the footer here */
+  
   height: 60px;
   background-color: #515151;
 }

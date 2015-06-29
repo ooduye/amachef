@@ -5,11 +5,13 @@
         <div class="portfolio-hover-content">
         </div>
       </div>
+      <div class="hoverdiv"  ui-sref="getOneRecipe({rid : recipe._id})">
       <div class="img-wrapper">
-        <a id="single_2" href="{{recipe.imageUrl}}" title="{{recipe.name}}"><img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt=""></a>
+        <img ng-src="{{recipe.imageUrl}}" class="img-responsive" alt="">
       </div>
       <div class="h2namenew">
-        <p ui-sref="getOneRecipe({rid : recipe._id})">{{recipe.name}}</p>
+        <p >{{recipe.name}}</p>
+      </div>
       </div>
       <div class="portfolio-caption">
         <div class="recipeingredients">
@@ -20,8 +22,9 @@
         <span class="glyphicon glyphicon-heart heart heartSpan"></span>
       </div>
     </div>
-    <div class="text-center">
+    
+  </div>
+  <div id="outPopUp" class="text-center pagination">
       <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
     </div>
-  </div>
 </div>
