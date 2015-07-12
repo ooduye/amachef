@@ -1,7 +1,7 @@
 app.controller("MainController", ["$http", "$scope", "info", "$location", "$rootScope", "$localStorage", '$stateParams', function($http, $scope, info, $location, $rootScope, $localStorage, $stateParams) {
 
   $scope.currentPage = 1;
-  $scope.pageSize = 15;
+  $scope.pageSize = 16;
 
   $scope.current_user = info.getUser();
 

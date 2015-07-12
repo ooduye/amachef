@@ -275,8 +275,8 @@ a.andela:hover {
   bottom: 10px;
   left: 0;
   right: 0;
-  -moz-border-radius: 100px / 10px;
-  border-radius: 100px / 10px;
+  /*-moz-border-radius: 100px / 10px;*/
+  /*border-radius: 100px / 10px;*/
 }
 
 .hoverdiv:hover:after {
